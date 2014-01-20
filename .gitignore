@@ -1,0 +1,6 @@
+.emacs.d/vendor
+.emacs.d/auto-save-list
+.emacs.d/recentf
+.emacs.d/molokai.el
+.emacs.d/ac-comphist.dat
+.zshrc.private

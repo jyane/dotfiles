@@ -19,6 +19,10 @@ export PATH="$HOME/.rbenv/bin:$PATH"
 autoload colors
 colors
 
+# ls colors
+export CLICOLOR=1
+export LSCOLORS=gxfxcxdxbxegedabagacad
+
 local mark="%B%(!,#,->)%b"
 PROMPT="%B%F{blue}%n%f%b@%F{gray}%m%f $mark "
 # [ -n "${REMOTEHOST}${SSH_CONNECTION}" ] && PROMPT="%B%n%b@%F{white}%m%f $mark "

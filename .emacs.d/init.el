@@ -8,7 +8,6 @@
 (load "~/.emacs.d/personal/python-mode.el")
 (load "~/.emacs.d/personal/ruby-mode.el")
 (load "~/.emacs.d/personal/shell-mode.el")
-(load "~/.emacs.d/personal/markdown-mode.el")
 
 ;; vendor from defuns.el
 (vendor 'coffee-mode)

@@ -1,4 +1,4 @@
-.emacs.d/vendor/
+.emacs.d/vendor/*
 !.emacs.d/vendor/update.rb
 .emacs.d/auto-save-list
 .emacs.d/recentf

@@ -18,7 +18,7 @@
 ;; フォントの設定
 (set-face-attribute 'default nil
                     :family "Ricty"
-                    :height 160)
+                    :height 140)
 
 (if (display-graphic-p)
     (set-fontset-font (frame-parameter nil 'font)

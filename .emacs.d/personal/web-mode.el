@@ -7,6 +7,8 @@
 (setq web-mode-style-padding 2)
 (setq web-mode-script-padding 2)
 (define-key web-mode-map (kbd "C-;") 'my-helm)
+;; (define-key web-mode-map (kbd "M-;") 'nxml-mode-comment-or-uncomment-region)
+(setq web-mode-comment-style 2)
 
 ;; 全部2にする
 (defun web-mode-hook ()

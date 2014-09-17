@@ -9,4 +9,4 @@
           (lambda ()
             (add-hook 'after-save-hook 'revert-compiled-coffee nil t)))
 (custom-set-variables '(coffee-tab-width 2))
-(setq coffee-command "/usr/local/share/npm/bin/coffee")
+(setq coffee-command "/Users/jyane/.nodebrew/current/bin/coffee")

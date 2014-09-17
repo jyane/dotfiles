@@ -8,7 +8,7 @@ export EDITOR=emacs
 export TERM=xterm-256color
 
 ## PATH
-export PATH=/usr/local/bin:${PATH}:~/bin/:${HOME}/bin:/usr/bin:/usr/local/sbin:/usr/local/share/npm/bin:/usr/texbin
+export PATH=/usr/local/bin:${PATH}:~/bin/:${HOME}/bin:/usr/bin:/usr/local/sbin:/usr/local/share/npm/bin:/usr/texbin:${HOME}/.nodebrew/current/bin
 
 # for rbenv
 PATH=$PATH:$HOME/bin
@@ -89,25 +89,10 @@ zle -N do_enter
 bindkey '^m' do_enter
 
 
-# antigen
-if [[ -f $HOME/.antigen/antigen.zsh ]]; then
-  source $HOME/.antigen/antigen.zsh
-
-  # antigen use oh-my-zsh
-
-  # autojump がなぜか動かない
-  antigen-bundles <<EOBUNDLES
-  zsh-users/zsh-syntax-highlighting
-  zsh-users/zsh-completions
-EOBUNDLES
-
-  # Tell antigen that you're done.
-  antigen-apply
+if [ -e /usr/local/share/zsh-completions ]; then
+    fpath=(/usr/local/share/zsh-completions $fpath)
 fi
 
-# autojump
-[[ -s `brew --prefix`/etc/autojump.zsh ]] && . `brew --prefix`/etc/autojump.zsh
-
-
+[ -f /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ] && source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 [ -f ~/.aliases ] && source ~/.aliases
 [ -f ~/.zshrc.private ] && source ~/.zshrc.private

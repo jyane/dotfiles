@@ -6,8 +6,8 @@
                '(background-color . "black")    ;; 背景色
                '(top . 0)
                '(left . 12)
-               '(width . 164)
-               '(height . 42)
+               '(width . 198)
+               '(height . 56)
                '(alpha . 85)
                )))
 (setq default-frame-alist initial-frame-alist)

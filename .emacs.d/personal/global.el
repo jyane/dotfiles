@@ -11,6 +11,7 @@
               "/sw/bin"
               "/usr/local/bin"
               "/usr/local/share/npm/bin"
+              "/Users/jyane/.nodebrew/current/bin"
               (expand-file-name "~/bin")
               (expand-file-name "~/.emacs.d/bin")
               ))

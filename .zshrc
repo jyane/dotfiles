@@ -105,16 +105,6 @@ function peco-select-history() {
 zle -N peco-select-history
 bindkey '^r' peco-select-history
 
-function peco-pkill() {
-    for pid in `ps aux | peco | awk '{ print $2 }'`
-    do
-        kill $pid
-        echo "Killed ${pid}"
-    done
-}
-alias pk="peco-pkill"
-
-
 
 if [ -e /usr/local/share/zsh-completions ]; then
     fpath=(/usr/local/share/zsh-completions $fpath)

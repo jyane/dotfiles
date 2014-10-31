@@ -5,9 +5,9 @@
                ;; '(foreground-color . "white")    ;; 文字色
                '(background-color . "black")    ;; 背景色
                '(top . 0)
-               '(left . 12)
+               '(left . 0)
                '(width . 198)
-               '(height . 56)
+               '(height . 60)
                '(alpha . 85)
                )))
 (setq default-frame-alist initial-frame-alist)

@@ -1,21 +1,15 @@
-
-;; iroiroの設定
 (setq initial-frame-alist
       (append (list
                ;; '(foreground-color . "white")    ;; 文字色
-               '(background-color . "black")    ;; 背景色
+               ;; '(background-color . "black")    ;; 背景色
                '(top . 0)
                '(left . 0)
-               '(width . 198)
-               '(height . 60)
+               '(width . 234)
+               '(height . 71)
                '(alpha . 85)
                )))
 (setq default-frame-alist initial-frame-alist)
 
-;; (set-face-background 'default "#ffffff")
-
-
-;; フォントの設定
 (set-face-attribute 'default nil
                     :family "Ricty"
                     :height 140)
@@ -33,17 +27,13 @@
                       'katakana-jisx0201
                       (cons "Ricty" "iso10646-1")))
 
-;; molokaiのテーマを使う
-;; (load "~/.emacs.d/personal/molokai.el")
-;; (enable-theme 'molokai)
 
 ;; wombatのテーマを使う
-(load-theme 'wombat t)
+;; (load-theme 'wombat t)
+(load-theme 'molokai)
+(setq molokai-theme-kit t)
 
 ;; 特定のキーワードをハイライトする（競技プログラミング用）
 (defconst c-mode-keywords
   '("REP","rep","foreach", "aiueo"))
 
-;; 起動時に画面分割状態にする
-;; (setq w (selected-window))
-;; (setq w2 (split-window w nil t))

@@ -6,13 +6,15 @@ export PAGER=less
 export EDITOR=emacs
 export TERM=xterm-256color
 
-export PATH=/usr/local/bin:${PATH}:${HOME}/bin:/usr/bin:/usr/local/sbin:/usr/texbin:${HOME}/.nodebrew/current/bin
+export PATH=/usr/local/bin:${PATH}:${HOME}/bin:/usr/bin:/usr/local/sbin:/usr/texbin:${HOME}/.nodebrew/current/bin:$(brew --prefix)/bin
 
 # for rbenv
 if which rbenv > /dev/null; then
     eval "$(rbenv init -)";
     export PATH="$HOME/.rbenv/bin:$PATH"
 fi
+
+
 
 ## Default shell configuration set prompt
 autoload colors
@@ -79,6 +81,6 @@ fi
 [ -f ~/.zsh/.zshrc.private ] && source ~/.zsh/.zshrc.private
 [ -f ~/.zsh/enter.zsh ] && source ~/.zsh/enter.zsh
 if which peco > /dev/null; then
-    [ -f ~/.zsh/peco-history.zsh ] && source ~/.zsh/peco-histroy.zsh
+    [ -f ~/.zsh/peco-history.zsh ] && source ~/.zsh/peco-history.zsh
     [ -f ~/.zsh/peco-cdr.zsh ] && source ~/.zsh/peco-cdr.zsh
 fi

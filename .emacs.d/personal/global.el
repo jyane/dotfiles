@@ -68,15 +68,15 @@
 
 
 ;;------------------------------------------------------------------
-;;  インデントの設定
+;;  indent
 ;;------------------------------------------------------------------
-;; タブ幅は2にする
 (setq-default tab-width 2)
 (setq js-indent-level 2)
-;; インデントは全て半角スペースで行う
+
 (setq-default indent-tabs-mode nil)
 (setq indent-line-function 'indent-relative-maybe)
 
+;; meta key settings
 (setq ns-command-modifier (quote meta))
 (setq ns-alternate-modifier (quote super))
 

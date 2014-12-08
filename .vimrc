@@ -22,14 +22,17 @@ set ruler
 set foldmethod=marker
 set showcmd
 set showmode
-set nocompatible
+" set nocompatible
 set textwidth=0
 set nowrap
+set laststatus=2
 
 set scrolloff=3
 
 set lazyredraw
 set ttyfast
+
+set ambiwidth=double
 
 nnoremap j gj
 nnoremap k gk
@@ -39,11 +42,12 @@ nnoremap ZQ <Nop>
 nnoremap Q <Nop>
 
 " Borrowed from https://github.com/jimon93/dotfiles/blob/master/.vimrc
-let mapleader = ' '
+let g:mapleader = ' '
 noremap <Leader><Leader> :w<CR>
 
 " search settings {{{
 set hlsearch
+set ignorecase
 set smartcase
 set incsearch
 set hlsearch
@@ -73,11 +77,16 @@ NeoBundle 'tpope/vim-haml'
 " tools
 NeoBundle 'Shougo/neocomplcache'
 NeoBundle 'osyo-manga/vim-anzu'
+NeoBundle 'osyo-manga/vim-precious'
+NeoBundle 'Shougo/context_filetype.vim'
 NeoBundle 'itchyny/lightline.vim'
+" NeoBundle 'tpope/vim-fugitive'
+" NeoBundle 'airblade/vim-gitgutter'
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/neomru.vim'
 NeoBundle 'Shougo/vimfiler'
 NeoBundle 'nathanaelkane/vim-indent-guides'
+NeoBundle 'scrooloose/nerdcommenter'
 NeoBundle 'mattn/emmet-vim'
 NeoBundle 'Shougo/vimproc', {
       \ 'build' : {
@@ -90,6 +99,8 @@ NeoBundle 'Shougo/vimproc', {
 
 " themes
 NeoBundle 'tomasr/molokai'
+NeoBundle 'w0ng/vim-hybrid'
+NeoBundle 'altercation/vim-colors-solarized'
 " }}}
 
 filetype plugin indent on
@@ -118,11 +129,51 @@ let g:lightline = {
       \   'readonly' : '%{&readonly?"⭤":""}',
       \ },
       \ 'component_function': {
-      \   'anzu': 'anzu#search_status'
+      \   'anzu': 'anzu#search_status',
+      \   'fugitive': 'MyFugitive',
+      \   'git-gutter': 'MyGitGutter'
       \ },
-      \ 'separator': { 'left': "\u2b80", 'right': "\u2b82" },
-      \ 'subseparator': { 'left': "\u2b81", 'right': "\u2b83" }
+      \ 'separator': { 'left': '⮀', 'right': '⮂' },
+      \ 'subseparator': { 'left': '⮁', 'right': '⮃' }
       \ }
+
+" function! MyFugitive()
+"   try
+"     if &ft !~? 'vimfiler\|gundo' && exists('*fugitive#head')
+"       let _ = fugitive#head()
+"       return strlen(_) ? '⭠ '._ : ''
+"     endif
+"   catch
+"   endtry
+"   return ''
+" endfunction
+
+" function! MyGitGutter()
+"   if ! exists('*GitGutterGetHunkSummary')
+"         \ || ! get(g:, 'gitgutter_enabled', 0)
+"         \ || winwidth('.') <= 90
+"     return ''
+"   endif
+"   let symbols = [
+"         \ g:gitgutter_sign_added . ' ',
+"         \ g:gitgutter_sign_modified . ' ',
+"         \ g:gitgutter_sign_removed . ' '
+"         \ ]
+"   let hunks = GitGutterGetHunkSummary()
+"   let ret = []
+"   for i in [0, 1, 2]
+"     if hunks[i] > 0
+"       call add(ret, symbols[i] . hunks[i])
+"     endif
+"   endfor
+"   return join(ret, ' ')
+" endfunction
+" }}}
+
+" vim-gitgutter {{{
+" let g:gitgutter_sign_modified = '>'
+" let g:gitgutter_sign_added = '+'
+" let g:gitgutter_sign_removed = '-'
 " }}}
 
 " anzu {{{
@@ -140,7 +191,7 @@ let g:neocomplcache_min_syntax_length = 3
 " }}}
 
 " appearance {{{
-colorscheme molokai
+colorscheme hybrid
 if &term =~ "xterm-256color" || "screen-256color"
   set t_Co=256
   set t_Sf=[3%dm
@@ -151,11 +202,10 @@ elseif &term =~ "xterm-color"
   set t_Sb=[4%dm
 endif
 
-set background=dark
 syntax on
 
 set guifont=Ricty\ for\ Powerline:h14
-set transparency=20
+set transparency=10
 vs
 " }}}
 
@@ -184,6 +234,38 @@ if has("autocmd")
   autocmd FileType sass       setlocal sw=2 sts=2 ts=2 et
   autocmd FileType php        setlocal sw=2 sts=2 ts=2 et
 endif
+
+autocmd FileType * set formatoptions-=ro
+autocmd InsertLeave * set nopaste
+" }}}
+
+" nerdcommenter {{{
+let NERDSpaceDelims = 1
+nmap ; <Plug>NERDCommenterToggle
+vmap ; <Plug>NERDCommenterToggle
+" }}}
+
+" context_filetype vim-precious {{{
+let g:context_filetype#filetypes = {
+      \ 'html': [
+      \ {
+      \ 'start': '<script>',
+      \ 'end': '</script>', 'filetype': 'javascript',},
+      \ {
+      \ 'start': '<script\%( [^>]*\)charset="[^\"]*"\%( [^>]*\)\?>',
+      \ 'end': '</script>', 'filetype': 'javascript',},
+      \ {
+      \ 'start': '<script\%( [^>]*\)\? type="text/javascript"\%( [^>]*\)\?>',
+      \ 'end': '</script>', 'filetype': 'javascript',},
+      \ {
+      \ 'start': '<script\%( [^>]*\)\? type="text/coffeescript"\%( [^>]*\)\?>',
+      \ 'end': '</script>', 'filetype': 'coffee',},
+      \ {
+      \ 'start': '<style\%( [^>]*\)\? type="text/css"\%( [^>]*\)\?>',
+      \ 'end': '</style>', 'filetype': 'css',},
+      \ {
+      \ 'start': '<?',
+      \ 'end': '?>', 'filetype': 'php',},],}
 " }}}
 
 " emmet {{{
@@ -201,4 +283,8 @@ nnoremap <silent> <Leader>fe :<C-u>VimFilerBufferDir -quit<CR>
 
 " template {{{
 autocmd BufNewFile *.cpp 0r $HOME/.vim/template/template.cpp
+" }}}
+
+" filetype {{{
+au BufRead,BufNewFile *.md set filetype=markdown
 " }}}

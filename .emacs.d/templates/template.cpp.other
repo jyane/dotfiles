@@ -17,14 +17,14 @@ using namespace std;
 #define rep(i,n) for((i)=0;(i)<(int)(n);(i)++)
 #define foreach(c,itr) for(__typeof((c).begin()) itr=(c).begin();itr!=(c).end();itr++)
 
-void main2(){
+void main2 () {
 }
 
-int main(){
-  int n,N;
-  scanf("%d\n",&N);
-  rep(n,N){
-    printf("Case #%d: ",n+1);
+int main () {
+  int t,T;
+  scanf("%d\n",&T);
+  rep(t,T) {
+    printf("Case #%d: ",t+1);
     main2();
   }
   return 0;

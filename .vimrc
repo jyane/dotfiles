@@ -11,6 +11,10 @@ set backspace=indent,eol,start
 set nobackup
 set noswapfile
 
+" kaoriya
+set noundofile
+
+
 set number
 set cursorline
 set autoread
@@ -70,12 +74,14 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 NeoBundle 'othree/html5.vim'
 NeoBundle 'hail2u/vim-css3-syntax'
 NeoBundle 'pangloss/vim-javascript'
-NeoBundle 'cakebaker/scss-syntax.vim'
+" NeoBundle 'cakebaker/scss-syntax.vim'
+NeoBundle 'vim-jp/cpp-vim'
 NeoBundle 'kchmck/vim-coffee-script'
 NeoBundle 'tpope/vim-haml'
 
 " tools
-NeoBundle 'Shougo/neocomplcache'
+" NeoBundle 'Shougo/neocomplcache'
+NeoBundle 'Shougo/neocomplete'
 NeoBundle 'osyo-manga/vim-anzu'
 NeoBundle 'osyo-manga/vim-precious'
 NeoBundle 'Shougo/context_filetype.vim'
@@ -98,9 +104,9 @@ NeoBundle 'Shougo/vimproc', {
       \ }
 
 " themes
-NeoBundle 'tomasr/molokai'
+" NeoBundle 'tomasr/molokai'
 NeoBundle 'w0ng/vim-hybrid'
-NeoBundle 'altercation/vim-colors-solarized'
+" NeoBundle 'altercation/vim-colors-solarized'
 " }}}
 
 filetype plugin indent on
@@ -183,24 +189,25 @@ nmap * <Plug>(anzu-star)
 nmap # <Plug>(anzu-sharp)
 " }}}
 
-" neocomplcache {{{
+" neocomplete {{{
 let g:acp_enableAtStartup = 0
-let g:neocomplcache_enable_at_startup = 1
-let g:neocomplcache_enable_smart_case = 1
-let g:neocomplcache_min_syntax_length = 3
+let g:neocomplete#enable_at_startup = 1
+let g:neocomplete#enable_smart_case = 1
+let g:neocomplete#sources#syntax#min_keyword_length = 3
+let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
 " }}}
 
 " appearance {{{
 colorscheme hybrid
-if &term =~ "xterm-256color" || "screen-256color"
-  set t_Co=256
-  set t_Sf=[3%dm
-  set t_Sb=[4%dm
-elseif &term =~ "xterm-color"
-  set t_Co=8
-  set t_Sf=[3%dm
-  set t_Sb=[4%dm
-endif
+" if &term =~ "xterm-256color" || "screen-256color"
+  " set t_Co=256
+  " set t_Sf=[3%dm
+  " set t_Sb=[4%dm
+" elseif &term =~ "xterm-color"
+  " set t_Co=8
+  " set t_Sf=[3%dm
+  " set t_Sb=[4%dm
+" endif
 
 syntax on
 
@@ -288,3 +295,5 @@ autocmd BufNewFile *.cpp 0r $HOME/.vim/template/template.cpp
 " filetype {{{
 au BufRead,BufNewFile *.md set filetype=markdown
 " }}}
+
+" 160.252.135.121

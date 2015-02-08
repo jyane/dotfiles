@@ -296,4 +296,3 @@ autocmd BufNewFile *.cpp 0r $HOME/.vim/template/template.cpp
 au BufRead,BufNewFile *.md set filetype=markdown
 " }}}
 
-" 160.252.135.121

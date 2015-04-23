@@ -9,3 +9,5 @@
 [user]
 	name = jyane
 	email = 
+[credential]
+	helper = osxkeychain

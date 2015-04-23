@@ -14,7 +14,6 @@ set noswapfile
 " kaoriya
 set noundofile
 
-
 set number
 set cursorline
 set autoread
@@ -54,7 +53,6 @@ set hlsearch
 set ignorecase
 set smartcase
 set incsearch
-set hlsearch
 nmap <silent> <ESC><ESC> :nohlsearch<CR>
 set wrapscan
 " }}}
@@ -81,6 +79,7 @@ NeoBundle 'tpope/vim-haml'
 
 " tools
 " NeoBundle 'Shougo/neocomplcache'
+NeoBundle 'tpope/vim-surround'
 NeoBundle 'Shougo/neocomplete'
 NeoBundle 'osyo-manga/vim-anzu'
 NeoBundle 'osyo-manga/vim-precious'
@@ -93,6 +92,7 @@ NeoBundle 'Shougo/neomru.vim'
 NeoBundle 'Shougo/vimfiler'
 NeoBundle 'nathanaelkane/vim-indent-guides'
 NeoBundle 'scrooloose/nerdcommenter'
+NeoBundle 'haya14busa/incsearch.vim'
 NeoBundle 'mattn/emmet-vim'
 NeoBundle 'Shougo/vimproc', {
       \ 'build' : {
@@ -102,6 +102,8 @@ NeoBundle 'Shougo/vimproc', {
       \ 'unix' : 'make -f make_unix.mak',
       \ },
       \ }
+NeoBundle 'Shougo/neosnippet'
+NeoBundle 'Shougo/neosnippet-snippets'
 
 " themes
 " NeoBundle 'tomasr/molokai'
@@ -189,16 +191,22 @@ nmap * <Plug>(anzu-star)
 nmap # <Plug>(anzu-sharp)
 " }}}
 
+" incsearch {{{
+map /  <Plug>(incsearch-forward)
+map ?  <Plug>(incsearch-backward)
+" }}}
+
 " neocomplete {{{
 let g:acp_enableAtStartup = 0
 let g:neocomplete#enable_at_startup = 1
 let g:neocomplete#enable_smart_case = 1
 let g:neocomplete#sources#syntax#min_keyword_length = 3
 let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
+
+set completeopt = menuone
 " }}}
 
 " appearance {{{
-colorscheme hybrid
 " if &term =~ "xterm-256color" || "screen-256color"
   " set t_Co=256
   " set t_Sf=[3%dm
@@ -208,11 +216,6 @@ colorscheme hybrid
   " set t_Sf=[3%dm
   " set t_Sb=[4%dm
 " endif
-
-syntax on
-
-set guifont=Ricty\ for\ Powerline:h14
-set transparency=10
 vs
 " }}}
 
@@ -296,3 +299,8 @@ autocmd BufNewFile *.cpp 0r $HOME/.vim/template/template.cpp
 au BufRead,BufNewFile *.md set filetype=markdown
 " }}}
 
+" {{{ neosnippet
+imap <C-k>     <Plug>(neosnippet_expand_or_jump)
+smap <C-k>     <Plug>(neosnippet_expand_or_jump)
+xmap <C-k>     <Plug>(neosnippet_expand_target)
+" }}}

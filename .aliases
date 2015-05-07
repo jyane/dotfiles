@@ -19,7 +19,6 @@ alias www='cd /var/www'
 # for competitive
 alias topcoder='/usr/bin/javaws http://community.topcoder.com/contest/arena/ContestAppletProd.jnlp &'
 alias g++='g++ -O2 -std=c++11 -Wall'
-alias gcc='gcc -O2'
 alias javac='javac -J-Dfile.encoding=UTF8'
 
 # tools
@@ -28,7 +27,6 @@ alias ll="ls -al"
 alias du="du -h"
 alias df="df -h"
 alias su="su -l"
-alias grep='GREP_COLOR="1;37;45" LANG=C grep --color=auto'
 # alias ip="curl -s http://checkip.dyndns.com/ | sed 's/[^0-9\.]//g'"
 
 # alias dvipdfmx='dvipdfmx -f hiraginoEmbed.map'

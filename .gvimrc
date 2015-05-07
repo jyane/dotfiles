@@ -3,9 +3,11 @@ set lines=90 columns=300
 colorscheme hybrid
 syntax on
 
-set guifont=Ricty\ for\ Powerline:h14
+" set guifont=Ricty\ for\ Powerline:h14
+" set guifontwide=Ricty\ for\ Powerline:h14
+set guifont=Ricty\ Diminished:h14
+set guifontwide=Ricty\ Diminished:h14
 set transparency=10
-
 
 set imdisableactivate
 

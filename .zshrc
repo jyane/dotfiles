@@ -3,7 +3,6 @@ export LC_CTYPE=ja_JP.UTF-8
 export LANG=ja_JP.UTF-8
 export LC_ALL=ja_JP.UTF-8
 export PAGER=less
-export EDITOR=emacs
 export TERM=xterm-256color
 
 export GOROOT=/usr/local/opt/go/libexec
@@ -77,12 +76,22 @@ if [ -e /usr/local/share/zsh-completions ]; then
     fpath=(/usr/local/share/zsh-completions $fpath)
 fi
 
-[ -f ~/bin/jyane-peco ] && source ~/bin/jyane-peco
+# read other settings
+[ -f ${HOME}/.aliases ] && source ${HOME}/.aliases
 [ -f /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ] && source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-[ -f ~/.aliases ] && source ~/.aliases
-[ -f ~/.zsh/.zshrc.private ] && source ~/.zsh/.zshrc.private
-[ -f ~/.zsh/enter.zsh ] && source ~/.zsh/enter.zsh
-if which peco > /dev/null; then
-    [ -f ~/.zsh/peco-history.zsh ] && source ~/.zsh/peco-history.zsh
-    [ -f ~/.zsh/peco-cdr.zsh ] && source ~/.zsh/peco-cdr.zsh
+[ -f ${HOME}/.zsh/enter.zsh ] && source ${HOME}/.zsh/enter.zsh
+[ -f ${HOME}/.zsh/jyane-peco ] && source ${HOME}/.zsh/jyane-peco
+
+# set master password
+echo 'Please enter master password.'
+read -s password
+export JYANE_PASS="${password}"
+
+if [ -f ${HOME}/.zsh/.zshrc.private.aes256 ]; then
+  local line
+  # read secret enviroment settings
+  cat ${HOME}/.zsh/.zshrc.private.aes256 | jyane-crypt decrypt --stdio | while read line; do
+    eval "${line}"
+  done
 fi
+

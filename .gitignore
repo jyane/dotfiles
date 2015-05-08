@@ -5,5 +5,4 @@
 .emacs.d/molokai.el
 .emacs.d/ac-comphist.dat
 .emacs.d/elpa
-.zshrc.private
 .zsh_history

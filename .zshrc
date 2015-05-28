@@ -76,20 +76,20 @@ if [ -e /usr/local/share/zsh-completions ]; then
     fpath=(/usr/local/share/zsh-completions $fpath)
 fi
 
-# read other settings
+# read other settings.
 [ -f ${HOME}/.aliases ] && source ${HOME}/.aliases
 [ -f /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ] && source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 [ -f ${HOME}/.zsh/enter.zsh ] && source ${HOME}/.zsh/enter.zsh
 [ -f ${HOME}/.zsh/jyane-peco ] && source ${HOME}/.zsh/jyane-peco
 
-# set master password
+# set master password.
 echo 'Please enter master password.'
 read -s password
 export JYANE_PASS="${password}"
 
 if [ -f ${HOME}/.zsh/.zshrc.private.aes256 ]; then
   local line
-  # read secret enviroment settings
+  # read secret enviroment variables.
   cat ${HOME}/.zsh/.zshrc.private.aes256 | jyane-crypt decrypt --stdio | while read line; do
     eval "${line}"
   done

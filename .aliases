@@ -18,7 +18,7 @@ alias www='cd /var/www'
 
 # for competitive
 alias topcoder='/usr/bin/javaws http://community.topcoder.com/contest/arena/ContestAppletProd.jnlp &'
-alias g++='g++ -O2 -std=c++11 -Wall'
+alias g++='g++-5 -O2 -std=c++11 -Wall'
 alias javac='javac -J-Dfile.encoding=UTF8'
 
 # tools

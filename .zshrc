@@ -9,6 +9,9 @@ export GOROOT=/usr/local/opt/go/libexec
 export GOPATH=$HOME/app/go
 export PATH=/usr/local/bin:${PATH}:${HOME}/bin:/usr/bin:/usr/local/sbin:/usr/texbin:${HOME}/.nodebrew/current/bin:$(brew --prefix)/bin
 export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
+export PATH=$PATH:/Users/jyane/anaconda3/bin
+# export PATH=
+export C_INCLUDE_PATH=$HOME/Dropbox/competitive/lib/
 
 # for rbenv
 if which rbenv > /dev/null; then
@@ -76,6 +79,25 @@ if [ -e /usr/local/share/zsh-completions ]; then
     fpath=(/usr/local/share/zsh-completions $fpath)
 fi
 
+function separate(){
+    echo -n $fg_bold[yellow]
+    local len=$(($COLUMNS-18))
+    for i in $(seq 1 $len); do
+        echo -n '_'
+    done
+    echo -n $reset_color
+}
+
+zle -N separate
+bindkey '^o' separate
+
+
+
+function git-changed-files(){
+  git status --short | peco | awk '{print $2}'
+}
+alias -g F='$(git-changed-files)'
+
 # read other settings.
 [ -f ${HOME}/.aliases ] && source ${HOME}/.aliases
 [ -f /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ] && source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
@@ -95,3 +117,8 @@ if [ -f ${HOME}/.zsh/.zshrc.private.aes256 ]; then
   done
 fi
 
+export PYENV_ROOT="${HOME}/.pyenv"
+if [ -d "${PYENV_ROOT}" ]; then
+    export PATH=${PYENV_ROOT}/bin:$PATH
+    eval "$(pyenv init -)"
+fi

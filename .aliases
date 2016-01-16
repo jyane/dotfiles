@@ -18,7 +18,7 @@ alias www='cd /var/www'
 
 # for competitive
 alias topcoder='/usr/bin/javaws http://community.topcoder.com/contest/arena/ContestAppletProd.jnlp &'
-alias g++='g++-5 -O2 -std=c++11 -Wall'
+alias g++='g++-5 -O2 -std=c++11 -Wall -Wextra -D LOCAL'
 alias javac='javac -J-Dfile.encoding=UTF8'
 
 # tools
@@ -27,6 +27,7 @@ alias ll="ls -al"
 alias du="du -h"
 alias df="df -h"
 alias su="su -l"
+alias fig="docker-compose"
 # alias ip="curl -s http://checkip.dyndns.com/ | sed 's/[^0-9\.]//g'"
 
 # alias dvipdfmx='dvipdfmx -f hiraginoEmbed.map'

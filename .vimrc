@@ -63,7 +63,10 @@ filetype plugin indent off
 
 if has('vim_starting')
   set runtimepath+=~/.vim/bundle/neobundle.vim
-  call neobundle#rc(expand('~/.vim/bundle'))
+  " call neobundle#rc(expand('~/.vim/bundle'))
+  call neobundle#begin(expand('~/.vim/bundle/'))
+  NeoBundleFetch 'Shougo/neobundle.vim'
+  call neobundle#end()
 endif
 
 NeoBundleFetch 'Shougo/neobundle.vim'
@@ -115,10 +118,15 @@ filetype plugin indent on
 NeoBundleCheck
 " }}}
 
+" color scheme {{{
+colorscheme hybrid
+syntax on
+" }}}
+
 " Unite {{{
-let g:unite_enable_start_insert=1
+" let g:unite_enable_start_insert=1
 let g:unite_source_history_yank_enable =1
-let g:unite_source_file_mru_limit = 200
+let g:unite_source_file_mru_limit = 400
 nnoremap <silent> <Leader>uy :<C-u>Unite history/yank<CR>
 nnoremap <silent> <Leader>ur :<C-u>Unite -buffer-name=register register<CR>
 nnoremap <silent> <Leader>uu :<C-u>Unite buffer file_mru<CR>
@@ -299,7 +307,7 @@ let g:neocomplete#sources#omni#input_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
   " set t_Sf=[3%dm
   " set t_Sb=[4%dm
 " endif
-vs
+" vs
 " }}}
 
 " indent settings {{{
@@ -309,12 +317,12 @@ set autoindent
 set smartindent
 set nopaste
 
-let g:indent_guides_enable_on_vim_startup=1
-let g:indent_guides_start_level=2
-let g:indent_guides_guide_size = 1
-let g:indent_guides_auto_colors=0
-autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=#333322 ctermbg=black
-autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=#222211 ctermbg=darkgray
+" let g:indent_guides_enable_on_vim_startup=1
+" let g:indent_guides_start_level=2
+" let g:indent_guides_guide_size = 1
+" let g:indent_guides_auto_colors=0
+" autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=#333322 ctermbg=black
+" autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=#222211 ctermbg=darkgray
 
 if has("autocmd")
   filetype plugin on
@@ -394,6 +402,7 @@ au BufRead,BufNewFile *.md set filetype=markdown
 " }}}
 
 " {{{ neosnippet
+let g:neosnippet#snippets_directory='~/.vim/bundle/neosnippet-snippets/snippets/'
 imap <C-k>     <Plug>(neosnippet_expand_or_jump)
 smap <C-k>     <Plug>(neosnippet_expand_or_jump)
 xmap <C-k>     <Plug>(neosnippet_expand_target)

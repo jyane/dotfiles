@@ -1,4 +1,4 @@
-set lines=90 columns=300
+set lines=100 columns=300
 
 colorscheme hybrid
 syntax on
@@ -12,6 +12,8 @@ set transparency=10
 set imdisableactivate
 
 hi CursorIM  guifg=black  guibg=red  gui=NONE  ctermfg=black  ctermbg=white  cterm=reverse
+
+set background=black
 
 set guioptions-=T
 

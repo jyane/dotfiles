@@ -91,8 +91,6 @@ function separate(){
 zle -N separate
 bindkey '^o' separate
 
-
-
 function git-changed-files(){
   git status --short | peco | awk '{print $2}'
 }
@@ -103,6 +101,9 @@ alias -g F='$(git-changed-files)'
 [ -f /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ] && source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 [ -f ${HOME}/.zsh/enter.zsh ] && source ${HOME}/.zsh/enter.zsh
 [ -f ${HOME}/.zsh/jyane-peco ] && source ${HOME}/.zsh/jyane-peco
+
+# docker
+eval $(docker-machine env dev)
 
 # set master password.
 echo 'Please enter master password.'

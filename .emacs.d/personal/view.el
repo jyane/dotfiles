@@ -11,7 +11,7 @@
 (setq default-frame-alist initial-frame-alist)
 
 (set-face-attribute 'default nil
-                    :family "Ricty"
+                    :family "Ricty Diminished"
                     :height 140)
 
 (if (display-graphic-p)

@@ -8,6 +8,7 @@ export TERM=xterm-256color
 export GOROOT=/usr/local/opt/go/libexec
 export GOPATH=$HOME/app/go
 export PATH=/usr/local/bin:${PATH}:${HOME}/bin:/usr/bin:/usr/local/sbin:/usr/texbin:${HOME}/.nodebrew/current/bin:$(brew --prefix)/bin
+export XDG_CONFIG_HOME=${HOME}/.nvim
 export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
 export PATH=$PATH:/Users/jyane/anaconda3/bin
 # export PATH=

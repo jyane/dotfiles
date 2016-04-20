@@ -1,0 +1,65 @@
+[[plugins]]
+repo = 'Shougo/dein.vim'
+
+[[plugins]]
+repo = 'Shougo/vimproc.vim'
+
+  [plugins.build]
+  windows = 'tools\\update-dll-mingw'
+  cygwin  = 'make -f make_cygwin.mak'
+  mac     = 'make -f make_mac.mak'
+  linux   = 'make'
+  unix    = 'gmake'
+
+[[plugins]]
+repo = 'w0ng/vim-hybrid'
+
+[[plugins]]
+repo = 'vim-jp/cpp-vim'
+
+[[plugins]]
+repo = 'tpope/vim-surround'
+
+[[plugins]]
+repo = 'Shougo/neocomplete'
+
+[[plugins]]
+repo = 'osyo-manga/vim-anzu'
+
+[[plugins]]
+repo = 'osyo-manga/vim-precious'
+
+[[plugins]]
+repo = 'Shougo/context_filetype.vim'
+
+[[plugins]]
+repo = 'itchyny/lightline.vim'
+
+[[plugins]]
+repo = 'Shougo/unite.vim'
+
+[[plugins]]
+repo = 'Shougo/neomru.vim'
+
+[[plugins]]
+repo = 'Shougo/vimfiler'
+
+[[plugins]]
+repo = 'nathanaelkane/vim-indent-guides'
+
+[[plugins]]
+repo = 'scrooloose/nerdcommenter'
+
+[[plugins]]
+repo = 'haya14busa/incsearch.vim'
+
+[[plugins]]
+repo = 'mattn/emmet-vim'
+
+[[plugins]]
+repo = 'Shougo/neosnippet'
+
+[[plugins]]
+repo = 'Shougo/neosnippet-snippets'
+
+

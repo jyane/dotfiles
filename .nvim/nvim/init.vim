@@ -58,67 +58,46 @@ set wrapscan
 " }}}
 " }}}
 
-" NeoBunde {{{
+" dein {{{
 filetype plugin indent off
 
-if has('vim_starting')
-  set runtimepath+=~/.vim/bundle/neobundle.vim
-  " call neobundle#rc(expand('~/.vim/bundle'))
-  call neobundle#begin(expand('~/.vim/bundle/'))
-  NeoBundleFetch 'Shougo/neobundle.vim'
-  call neobundle#end()
+if &compatible
+  set nocompatible
 endif
 
-NeoBundleFetch 'Shougo/neobundle.vim'
+let s:dein_dir = expand('~/.nvim/dein')
+let s:dein_repo_dir = s:dein_dir . '/repos/github.com/Shougo/dein.vim'
 
-" bundles {{{
-NeoBundle 'othree/html5.vim'
-NeoBundle 'hail2u/vim-css3-syntax'
-NeoBundle 'pangloss/vim-javascript'
-" NeoBundle 'cakebaker/scss-syntax.vim'
-NeoBundle 'vim-jp/cpp-vim'
-NeoBundle 'kchmck/vim-coffee-script'
-NeoBundle 'tpope/vim-haml'
+execute 'set runtimepath^=' . s:dein_repo_dir
 
-" tools
-" NeoBundle 'Shougo/neocomplcache'
-NeoBundle 'tpope/vim-surround'
-NeoBundle 'Shougo/neocomplete'
-NeoBundle 'osyo-manga/vim-anzu'
-NeoBundle 'osyo-manga/vim-precious'
-NeoBundle 'Shougo/context_filetype.vim'
-NeoBundle 'itchyny/lightline.vim'
-" NeoBundle 'tpope/vim-fugitive'
-" NeoBundle 'airblade/vim-gitgutter'
-NeoBundle 'Shougo/unite.vim'
-NeoBundle 'Shougo/neomru.vim'
-NeoBundle 'Shougo/vimfiler'
-NeoBundle 'nathanaelkane/vim-indent-guides'
-NeoBundle 'scrooloose/nerdcommenter'
-NeoBundle 'haya14busa/incsearch.vim'
-NeoBundle 'mattn/emmet-vim'
-NeoBundle 'Shougo/vimproc', {
-      \ 'build' : {
-      \ 'windows' : 'make -f make_mingw32.mak',
-      \ 'cygwin' : 'make -f make_cygwin.mak',
-      \ 'mac' : 'make -f make_mac.mak',
-      \ 'unix' : 'make -f make_unix.mak',
-      \ },
-      \ }
-NeoBundle 'Shougo/neosnippet'
-NeoBundle 'Shougo/neosnippet-snippets'
 
-" themes
-" NeoBundle 'tomasr/molokai'
-NeoBundle 'w0ng/vim-hybrid'
-" NeoBundle 'altercation/vim-colors-solarized'
-" }}}
+" 設定開始
+if dein#load_state(s:dein_dir)
+  call dein#begin(s:dein_dir)
+
+  " プラグインリストを収めた TOML ファイル
+  let s:toml      = s:dein_dir . '/.dein.toml'
+  let s:lazy_toml = s:dein_dir . '/.dein_lazy.toml'
+
+  " TOML を読み込み、キャッシュしておく
+  call dein#load_toml(s:toml,      {'lazy': 0})
+  call dein#load_toml(s:lazy_toml, {'lazy': 1})
+
+  " 設定終了
+  call dein#end()
+  call dein#save_state()
+endif
+
+" もし、未インストールものものがあったらインストール
+if dein#check_install()
+  call dein#install()
+endif
 
 filetype plugin indent on
-NeoBundleCheck
 " }}}
 
 " color scheme {{{
+set background=dark
 colorscheme hybrid
 syntax on
 " }}}
@@ -330,10 +309,11 @@ if has("autocmd")
 
   autocmd FileType coffee     setlocal sw=2 sts=2 ts=2 et
   autocmd FileType html       setlocal sw=2 sts=2 ts=2 et
-  autocmd FileType javascript setlocal sw=2 sts=2 ts=2 et
+  autocmd FileType javascript setlocal sw=4 sts=4 ts=4 et
   autocmd FileType scss       setlocal sw=2 sts=2 ts=2 et
   autocmd FileType sass       setlocal sw=2 sts=2 ts=2 et
   autocmd FileType php        setlocal sw=2 sts=2 ts=2 et
+  autocmd BufNewFile,BufRead *.go set noexpandtab tabstop=4 shiftwidth=4
 endif
 
 autocmd FileType * set formatoptions-=ro

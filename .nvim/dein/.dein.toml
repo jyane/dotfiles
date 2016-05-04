@@ -21,9 +21,6 @@ repo = 'vim-jp/cpp-vim'
 repo = 'tpope/vim-surround'
 
 [[plugins]]
-repo = 'Shougo/neocomplete'
-
-[[plugins]]
 repo = 'osyo-manga/vim-anzu'
 
 [[plugins]]
@@ -62,4 +59,5 @@ repo = 'Shougo/neosnippet'
 [[plugins]]
 repo = 'Shougo/neosnippet-snippets'
 
-
+[[plugins]]
+repo = 'Shougo/deoplete.nvim'

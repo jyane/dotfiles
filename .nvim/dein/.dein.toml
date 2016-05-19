@@ -61,3 +61,4 @@ repo = 'Shougo/neosnippet-snippets'
 
 [[plugins]]
 repo = 'Shougo/deoplete.nvim'
+

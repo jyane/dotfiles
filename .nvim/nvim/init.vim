@@ -46,6 +46,9 @@ nnoremap ZZ <Nop>
 nnoremap ZQ <Nop>
 nnoremap Q <Nop>
 
+inoremap { {}<LEFT>
+inoremap ( ()<LEFT>
+
 " Borrowed from https://github.com/jimon93/dotfiles/blob/master/.vimrc
 let g:mapleader = ' '
 noremap <Leader><Leader> :w<CR>
@@ -311,7 +314,7 @@ if has("autocmd")
 
   autocmd FileType coffee     setlocal sw=2 sts=2 ts=2 et
   autocmd FileType html       setlocal sw=2 sts=2 ts=2 et
-  autocmd FileType javascript setlocal sw=4 sts=4 ts=4 et
+  autocmd FileType javascript setlocal sw=2 sts=2 ts=2 et
   autocmd FileType scss       setlocal sw=2 sts=2 ts=2 et
   autocmd FileType sass       setlocal sw=2 sts=2 ts=2 et
   autocmd FileType php        setlocal sw=2 sts=2 ts=2 et
@@ -399,8 +402,13 @@ inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 " scala {{{
 " autocmd  BufWriteCmd  *.scala :VimShellSendString compile
 
-nnoremap <Space>r :VimShellSendString run<Cr>
-autocmd  BufWrite  *.scala :VimShellSendString compile
+function! s:scala()
+  nnoremap <Space>r :VimShellSendString run<Cr>
+  nnoremap <Space>t :VimShellSendString test<Cr>
+  nnoremap <Space>c :VimShellSendString compile<Cr>
+endfunction
+
+autocmd BufRead *.scala :call s:scala()
 
 " }}}
 

@@ -25,3 +25,12 @@ on_ft = 'css'
 [[plugins]]
 repo = 'derekwyatt/vim-scala'
 on_ft = 'scala'
+
+[[plugins]]
+repo = 'mxw/vim-jsx'
+on_ft = 'jsx'
+
+# [[plugins]]
+# repo = 'othree/yajs.vim'
+# on_ft = 'es6'
+

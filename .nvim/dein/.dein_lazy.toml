@@ -32,5 +32,5 @@ on_ft = 'jsx'
 
 # [[plugins]]
 # repo = 'othree/yajs.vim'
-# on_ft = 'es6'
+# on_ft = 'javascript'
 

@@ -30,7 +30,3 @@ on_ft = 'scala'
 repo = 'mxw/vim-jsx'
 on_ft = 'jsx'
 
-# [[plugins]]
-# repo = 'othree/yajs.vim'
-# on_ft = 'javascript'
-

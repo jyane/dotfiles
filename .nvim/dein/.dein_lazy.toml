@@ -30,3 +30,6 @@ on_ft = 'scala'
 repo = 'mxw/vim-jsx'
 on_ft = 'jsx'
 
+[[plugins]]
+repo = 'leafgarland/typescript-vim'
+on_ft = 'ts'

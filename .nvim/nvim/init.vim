@@ -412,3 +412,8 @@ autocmd BufRead *.scala :call s:scala()
 
 " }}}
 
+
+augroup vimrc-checktime
+  autocmd!
+  autocmd InsertEnter,WinEnter * checktime
+augroup END

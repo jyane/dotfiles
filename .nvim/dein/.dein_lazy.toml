@@ -33,3 +33,4 @@ on_ft = 'jsx'
 [[plugins]]
 repo = 'leafgarland/typescript-vim'
 on_ft = 'ts'
+

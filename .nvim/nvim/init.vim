@@ -301,22 +301,24 @@ set autoindent
 set smartindent
 set nopaste
 
-" let g:indent_guides_enable_on_vim_startup=1
-" let g:indent_guides_start_level=2
-" let g:indent_guides_guide_size = 1
-" let g:indent_guides_auto_colors=0
-" autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=#333322 ctermbg=black
-" autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=#222211 ctermbg=darkgray
+let g:indent_guides_enable_on_vim_startup=1
+let g:indent_guides_start_level=2
+let g:indent_guides_guide_size =1
+let g:indent_guides_auto_colors=0
+autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=#333322 ctermbg=black
+autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=#222211 ctermbg=233
+
 
 if has("autocmd")
   filetype plugin on
   filetype indent on
 
   autocmd FileType coffee     setlocal sw=2 sts=2 ts=2 et
-  autocmd FileType html       setlocal sw=2 sts=2 ts=2 et
+  autocmd FileType html       setlocal sw=4 sts=4 ts=4 et
   autocmd FileType javascript setlocal sw=2 sts=2 ts=2 et
   autocmd FileType scss       setlocal sw=2 sts=2 ts=2 et
   autocmd FileType sass       setlocal sw=2 sts=2 ts=2 et
+  autocmd FileType typescript       setlocal sw=4 sts=4 ts=4 et
   autocmd FileType php        setlocal sw=2 sts=2 ts=2 et
   autocmd BufNewFile,BufRead *.go set noexpandtab tabstop=4 shiftwidth=4
 endif
@@ -384,6 +386,8 @@ autocmd BufNewFile *.cpp 0r $HOME/.vim/template/template.cpp
 
 " filetype {{{
 au BufRead,BufNewFile *.md set filetype=markdown
+autocmd BufRead,BufNewFile *.tsx set filetype=typescript.tsx
+autocmd BufRead,BufNewFile *.ts set filetype=typescript
 " }}}
 
 " {{{ neosnippet
@@ -417,3 +421,4 @@ augroup vimrc-checktime
   autocmd!
   autocmd InsertEnter,WinEnter * checktime
 augroup END
+

@@ -156,24 +156,16 @@ set autoindent
 set smartindent
 set nopaste
 
-if has("autocmd")
-  autocmd FileType coffee     setlocal sw=2 sts=2 ts=2 et
-  autocmd FileType html       setlocal sw=2 sts=2 ts=2 et
-  autocmd FileType javascript setlocal sw=2 sts=2 ts=2 et
-  autocmd FileType scss       setlocal sw=2 sts=2 ts=2 et
-  autocmd FileType sass       setlocal sw=2 sts=2 ts=2 et
-  autocmd FileType php        setlocal sw=2 sts=2 ts=2 et
-  autocmd BufNewFile,BufRead *.go set noexpandtab tabstop=4 shiftwidth=4
-endif
-
 autocmd FileType * set formatoptions-=ro
 autocmd InsertLeave * set nopaste
 " }}}
 
 " filetype {{{
 au BufRead,BufNewFile *.md set filetype=markdown
+au BufRead,BufNewFile *.ts set filetype=typescript.tsx
 au BufRead,BufNewFile *.tsx set filetype=typescript.tsx
 au BufRead,BufNewFile *.js set filetype=javascript.jsx
+au BufRead,BufNewFile *.jsx set filetype=javascript.jsx
 " }}}
 
 " nerdcommenter {{{
@@ -207,10 +199,6 @@ let g:context_filetype#filetypes = {
 
 " emmet {{{
 let g:user_emmet_leader_key='<c-t>'
-" }}}
-
-" space remover {{{
-autocmd BufWritePre * :%s/\s\+$//ge
 " }}}
 
 " vimfiler {{{

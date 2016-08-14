@@ -3,10 +3,6 @@ repo = 'pangloss/vim-javascript'
 on_ft = 'javascript'
 
 [[plugins]]
-repo = 'kchmck/vim-coffee-script'
-on_ft = 'coffee'
-
-[[plugins]]
 repo = 'cespare/vim-toml'
 on_ft = 'toml'
 
@@ -32,5 +28,8 @@ on_ft = 'jsx'
 
 [[plugins]]
 repo = 'leafgarland/typescript-vim'
-on_ft = 'ts'
+on_ft = 'typescript'
 
+[[plugins]]
+repo = 'ianks/vim-tsx'
+on_ft = 'tsx'

@@ -68,3 +68,6 @@ repo = 'Shougo/vimshell'
 [[plugins]]
 repo = 'scrooloose/nerdtree'
 
+[[plugins]]
+repo = 'editorconfig/editorconfig-vim'
+

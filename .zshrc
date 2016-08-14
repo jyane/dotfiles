@@ -8,7 +8,7 @@ export TERM=xterm-256color
 export GOROOT=/usr/local/opt/go/libexec
 export GOPATH=$HOME/app/go
 export PATH=/usr/local/bin:${PATH}:${HOME}/bin:/usr/bin:/usr/local/sbin:/usr/texbin:${HOME}/.nodebrew/current/bin:$(brew --prefix)/bin
-export XDG_CONFIG_HOME=${HOME}/.nvim
+export XDG_CONFIG_HOME=${HOME}/.config
 export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
 
 # for rbenv
@@ -100,24 +100,15 @@ alias -g F='$(git-changed-files)'
 [ -f ${HOME}/.zsh/enter.zsh ] && source ${HOME}/.zsh/enter.zsh
 [ -f ${HOME}/.zsh/jyane-peco ] && source ${HOME}/.zsh/jyane-peco
 
-# docker
-eval $(docker-machine env dev)
-
 # set master password.
-echo 'Please enter master password.'
-read -s password
-export JYANE_PASS="${password}"
+# echo 'Please enter master password.'
+# read -s password
+# export JYANE_PASS="${password}"
 
-if [ -f ${HOME}/.zsh/.zshrc.private.aes256 ]; then
-  local line
-  # read secret enviroment variables.
-  cat ${HOME}/.zsh/.zshrc.private.aes256 | jyane-crypt decrypt --stdio | while read line; do
-    eval "${line}"
-  done
-fi
-
-export PYENV_ROOT="${HOME}/.pyenv"
-if [ -d "${PYENV_ROOT}" ]; then
-    export PATH=${PYENV_ROOT}/bin:$PATH
-    eval "$(pyenv init -)"
-fi
+# if [ -f ${HOME}/.zsh/.zshrc.private.aes256 ]; then
+  # local line
+  # # read secret enviroment variables.
+  # cat ${HOME}/.zsh/.zshrc.private.aes256 | jyane-crypt decrypt --stdio | while read line; do
+    # eval "${line}"
+  # done
+# fi

@@ -8,7 +8,6 @@ set encoding=utf-8
 
 set fileencodings=utf-8,sjis,shift-jis,euc-jp,utf-16,ascii,ucs-bom,cp932,iso-2022-jp
 set backspace=indent,eol,start
-set nobackup
 set noswapfile
 
 " kaoriya
@@ -47,6 +46,9 @@ nnoremap Q <Nop>
 
 inoremap { {}<LEFT>
 inoremap ( ()<LEFT>
+
+set backup
+set backupdir=~/workspace/tmp/nvim
 
 " Borrowed from https://github.com/jimon93/dotfiles/blob/master/.vimrc
 let g:mapleader = ' '

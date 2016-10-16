@@ -3,6 +3,14 @@ repo = 'pangloss/vim-javascript'
 on_ft = 'javascript'
 
 [[plugins]]
+repo = 'flowtype/vim-flow'
+on_ft = 'javascript'
+
+[[plugins]]
+repo = 'steelsojka/deoplete-flow'
+on_ft = 'javascript'
+
+[[plugins]]
 repo = 'cespare/vim-toml'
 on_ft = 'toml'
 
@@ -19,10 +27,6 @@ repo = 'hail2u/vim-css3-syntax'
 on_ft = 'css'
 
 [[plugins]]
-repo = 'derekwyatt/vim-scala'
-on_ft = 'scala'
-
-[[plugins]]
 repo = 'mxw/vim-jsx'
 on_ft = 'jsx'
 
@@ -33,3 +37,4 @@ on_ft = 'typescript'
 [[plugins]]
 repo = 'ianks/vim-tsx'
 on_ft = 'tsx'
+

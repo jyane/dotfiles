@@ -247,3 +247,4 @@ augroup vimrc-checktime
   autocmd InsertEnter,WinEnter * checktime
 augroup END
 
+let g:flow#autoclose = 1

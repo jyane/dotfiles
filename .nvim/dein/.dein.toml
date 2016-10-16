@@ -18,9 +18,6 @@ repo = 'w0ng/vim-hybrid'
 repo = 'vim-jp/cpp-vim'
 
 [[plugins]]
-repo = 'tpope/vim-surround'
-
-[[plugins]]
 repo = 'osyo-manga/vim-anzu'
 
 [[plugins]]
@@ -49,9 +46,6 @@ repo = 'scrooloose/nerdcommenter'
 
 [[plugins]]
 repo = 'haya14busa/incsearch.vim'
-
-[[plugins]]
-repo = 'mattn/emmet-vim'
 
 [[plugins]]
 repo = 'Shougo/neosnippet'

@@ -11,6 +11,10 @@ repo = 'steelsojka/deoplete-flow'
 on_ft = 'javascript'
 
 [[plugins]]
+repo = 'slim-template/vim-slim'
+on_ft = 'slim'
+
+[[plugins]]
 repo = 'cespare/vim-toml'
 on_ft = 'toml'
 

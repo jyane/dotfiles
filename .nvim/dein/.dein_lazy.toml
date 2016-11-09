@@ -3,14 +3,6 @@ repo = 'pangloss/vim-javascript'
 on_ft = 'javascript'
 
 [[plugins]]
-repo = 'flowtype/vim-flow'
-on_ft = 'javascript'
-
-[[plugins]]
-repo = 'steelsojka/deoplete-flow'
-on_ft = 'javascript'
-
-[[plugins]]
 repo = 'slim-template/vim-slim'
 on_ft = 'slim'
 
@@ -41,4 +33,12 @@ on_ft = 'typescript'
 [[plugins]]
 repo = 'ianks/vim-tsx'
 on_ft = 'tsx'
+
+[[plugins]]
+repo = 'mhartington/deoplete-typescript'
+on_ft = ['ts', 'tsx', 'typescript.tsx', 'typescrpt']
+
+[[plugins]]
+repo = 'steelsojka/deoplete-flow'
+on_ft = ['javascript', 'javascript.jsx']
 

@@ -9,6 +9,7 @@ set encoding=utf-8
 set fileencodings=utf-8,sjis,shift-jis,euc-jp,utf-16,ascii,ucs-bom,cp932,iso-2022-jp
 set backspace=indent,eol,start
 set noswapfile
+set mouse-=a
 
 " kaoriya
 set noundofile
@@ -247,4 +248,12 @@ augroup vimrc-checktime
   autocmd InsertEnter,WinEnter * checktime
 augroup END
 
-let g:flow#autoclose = 1
+function! StrTrim(txt)
+  return substitute(a:txt, '^\n*\s*\(.\{-}\)\n*\s*$', '\1', '')
+endfunction
+
+let g:flow_path = StrTrim(system('PATH=$(npm bin):$PATH && which flow'))
+
+if g:flow_path != 'flow not found'
+  let g:deoplete#sources#flow#flow_bin = g:flow_path
+endif

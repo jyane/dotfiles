@@ -99,7 +99,7 @@ filetype plugin indent on
 
 " color scheme {{{
 set background=dark
-colorscheme hybrid
+colorscheme atom-dark-256
 syntax on
 " }}}
 
@@ -259,3 +259,6 @@ if g:flow_path != 'flow not found'
 endif
 
 let g:jsdoc_enable_es6=1
+
+execute "set colorcolumn=" . join(range(121, 9999), ',')
+

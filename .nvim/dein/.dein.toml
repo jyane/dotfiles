@@ -15,6 +15,9 @@ repo = 'Shougo/vimproc.vim'
 repo = 'w0ng/vim-hybrid'
 
 [[plugins]]
+repo = 'gosukiwi/vim-atom-dark'
+
+[[plugins]]
 repo = 'vim-jp/cpp-vim'
 
 [[plugins]]

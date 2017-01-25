@@ -68,6 +68,7 @@ setopt share_history # share command history data
 # cdr
 autoload -Uz chpwd_recent_dirs cdr add-zsh-hook
 add-zsh-hook chpwd chpwd_recent_dirs
+zstyle ':chpwd:*' recent-dirs-max 500
 
 # Completion configuration
 autoload -U compinit

@@ -184,26 +184,26 @@ vmap ; <Plug>NERDCommenterToggle
 " }}}
 
 " context_filetype vim-precious {{{
-let g:context_filetype#filetypes = {
-      \ 'html': [
-      \ {
-      \ 'start': '<script>',
-      \ 'end': '</script>', 'filetype': 'javascript',},
-      \ {
-      \ 'start': '<script\%( [^>]*\)charset="[^\"]*"\%( [^>]*\)\?>',
-      \ 'end': '</script>', 'filetype': 'javascript',},
-      \ {
-      \ 'start': '<script\%( [^>]*\)\? type="text/javascript"\%( [^>]*\)\?>',
-      \ 'end': '</script>', 'filetype': 'javascript',},
-      \ {
-      \ 'start': '<script\%( [^>]*\)\? type="text/coffeescript"\%( [^>]*\)\?>',
-      \ 'end': '</script>', 'filetype': 'coffee',},
-      \ {
-      \ 'start': '<style\%( [^>]*\)\? type="text/css"\%( [^>]*\)\?>',
-      \ 'end': '</style>', 'filetype': 'css',},
-      \ {
-      \ 'start': '<?',
-      \ 'end': '?>', 'filetype': 'php',},],}
+" let g:context_filetype#filetypes = {
+      " \ 'html': [
+      " \ {
+      " \ 'start': '<script>',
+      " \ 'end': '</script>', 'filetype': 'javascript',},
+      " \ {
+      " \ 'start': '<script\%( [^>]*\)charset="[^\"]*"\%( [^>]*\)\?>',
+      " \ 'end': '</script>', 'filetype': 'javascript',},
+      " \ {
+      " \ 'start': '<script\%( [^>]*\)\? type="text/javascript"\%( [^>]*\)\?>',
+      " \ 'end': '</script>', 'filetype': 'javascript',},
+      " \ {
+      " \ 'start': '<script\%( [^>]*\)\? type="text/coffeescript"\%( [^>]*\)\?>',
+      " \ 'end': '</script>', 'filetype': 'coffee',},
+      " \ {
+      " \ 'start': '<style\%( [^>]*\)\? type="text/css"\%( [^>]*\)\?>',
+      " \ 'end': '</style>', 'filetype': 'css',},
+      " \ {
+      " \ 'start': '<?',
+      " \ 'end': '?>', 'filetype': 'php',},],}
 " }}}
 
 " emmet {{{
@@ -241,7 +241,7 @@ xmap <C-k>     <Plug>(neosnippet_expand_target)
 let g:deoplete#enable_at_startup = 1
 let g:deoplete#enable_smart_case = 1
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
-" }}}
+" " }}}
 
 augroup vimrc-checktime
   autocmd!
@@ -252,11 +252,11 @@ function! StrTrim(txt)
   return substitute(a:txt, '^\n*\s*\(.\{-}\)\n*\s*$', '\1', '')
 endfunction
 
-let g:flow_path = StrTrim(system('PATH=$(npm bin):$PATH && which flow'))
+" let g:flow_path = StrTrim(system('PATH=$(npm bin):$PATH && which flow'))
 
-if g:flow_path != 'flow not found'
-  let g:deoplete#sources#flow#flow_bin = g:flow_path
-endif
+" if g:flow_path != 'flow not found'
+  " let g:deoplete#sources#flow#flow_bin = g:flow_path
+" endif
 
 let g:jsdoc_enable_es6=1
 

@@ -113,3 +113,6 @@ alias -g F='$(git-changed-files)'
     # eval "${line}"
   # done
 # fi
+
+if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
+if which pyenv-virtualenv-init > /dev/null; then eval "$(pyenv virtualenv-init -)"; fi

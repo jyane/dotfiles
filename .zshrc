@@ -116,3 +116,16 @@ alias -g F='$(git-changed-files)'
 
 if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
 if which pyenv-virtualenv-init > /dev/null; then eval "$(pyenv virtualenv-init -)"; fi
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/jyane/app/google-cloud-sdk/path.zsh.inc' ]; then source '/Users/jyane/app/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/jyane/app/google-cloud-sdk/completion.zsh.inc' ]; then source '/Users/jyane/app/google-cloud-sdk/completion.zsh.inc'; fi
+
+export PYENV_ROOT="${HOME}/.pyenv"
+if [ -d "${PYENV_ROOT}" ]; then
+    export PATH=${PYENV_ROOT}/bin:$PATH
+    eval "$(pyenv init -)"
+    eval "$(pyenv virtualenv-init -)"
+fi

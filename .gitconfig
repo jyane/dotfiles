@@ -14,5 +14,6 @@
   history = log -1000 --format=format:'%Cgreen%h %Creset• %s (%cN, %ar)'
   branches = branch -a
   untrack = rm -r --cached
+  prune = fetch --prune
 [credential]
 	helper = osxkeychain

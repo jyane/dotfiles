@@ -227,7 +227,7 @@ autocmd FileType vimfiler
 " }}}
 
 " template {{{
-autocmd BufNewFile *.cpp 0r $HOME/.vim/template/template.cpp
+autocmd BufNewFile *.cpp 0r $HOME/.config/template/template.cpp
 " }}}
 
 " {{{ neosnippet
@@ -260,5 +260,4 @@ endfunction
 
 let g:jsdoc_enable_es6=1
 
-execute "set colorcolumn=" . join(range(121, 9999), ',')
-
+let g:rust_clip_command = 'pbcopy'

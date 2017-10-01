@@ -62,3 +62,7 @@ repo = 'scrooloose/nerdtree'
 
 [[plugins]]
 repo = 'mattn/benchvimrc-vim'
+
+[[plugins]]
+repo = 'rust-lang/rust.vim'
+

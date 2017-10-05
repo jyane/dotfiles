@@ -26,8 +26,10 @@ export CLICOLOR=1
 export LSCOLORS=gxfxcxdxbxegedabagacad
 
 local mark="%B%(!,#,->)%b"
-PROMPT="%B%F{blue}%n%f%b@%F{gray}%m%f $mark "
-RPROMPT="%* [%~]"
+PROMPT="[%~] (%B%F{blue}%n%f%b@%F{gray}%m%f 20%D %*)
+$mark "
+
+# RPROMPT="%* [%~]"
 SPROMPT="%B%{${fg[red]}%}%r is correct? [n,y,a,e]:%{${reset_color}%}%b "
 
 setopt auto_cd

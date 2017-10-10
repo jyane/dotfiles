@@ -5,11 +5,14 @@ function do_enter() {
     fi
     echo
     ls -a
+    echo
+    echo
     # ls_abbrev
     if [ "$(git rev-parse --is-inside-work-tree 2> /dev/null)" = 'true' ]; then
-        echo
         echo -e "\e[0;33m--- git status ---\e[0m"
         git status -sb
+        echo
+        echo
     fi
     zle reset-prompt
     return 0

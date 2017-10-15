@@ -22,17 +22,6 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-function _print_in_buffer() {
-  if zle; then
-    BUFFER=$1
-    CURSOR=$#BUFFER
-    zle clear-screen
-  else
-    print -z $1
-  fi
-}
-
-
 if type "peco" >/dev/null 2>/dev/null; then
   local basedir=$(dirname $0)
 

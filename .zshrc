@@ -17,6 +17,17 @@ if which rbenv > /dev/null; then
     export PATH="$HOME/.rbenv/bin:$PATH"
 fi
 
+# pyenv
+if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
+if which pyenv-virtualenv-init > /dev/null; then eval "$(pyenv virtualenv-init -)"; fi
+
+export PYENV_ROOT="${HOME}/.pyenv"
+if [ -d "${PYENV_ROOT}" ]; then
+    export PATH=${PYENV_ROOT}/bin:$PATH
+    eval "$(pyenv init -)"
+    eval "$(pyenv virtualenv-init -)"
+fi
+
 # Default shell configuration set prompt
 autoload colors
 colors
@@ -80,55 +91,15 @@ if [ -e /usr/local/share/zsh-completions ]; then
     fpath=(/usr/local/share/zsh-completions $fpath)
 fi
 
-function separate(){
-    echo -n $fg_bold[yellow]
-    local len=$(($COLUMNS-18))
-    for i in $(seq 1 $len); do
-        echo -n '_'
-    done
-    echo -n $reset_color
-}
-
-zle -N separate
-bindkey '^o' separate
-
-function git-changed-files(){
-  git status --short | peco | awk '{print $2}'
-}
-alias -g F='$(git-changed-files)'
-
 # read other settings.
+[ -f ${HOME}/.cargo/env ] && source ${HOME}/.cargo/env
 [ -f ${HOME}/.aliases ] && source ${HOME}/.aliases
 [ -f /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ] && source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 [ -f ${HOME}/.zsh/enter.zsh ] && source ${HOME}/.zsh/enter.zsh
 [ -f ${HOME}/.zsh/jyane-peco ] && source ${HOME}/.zsh/jyane-peco
-
-# set master password.
-# echo 'Please enter master password.'
-# read -s password
-# export JYANE_PASS="${password}"
-
-# if [ -f ${HOME}/.zsh/.zshrc.private.aes256 ]; then
-  # local line
-  # # read secret enviroment variables.
-  # cat ${HOME}/.zsh/.zshrc.private.aes256 | jyane-crypt decrypt --stdio | while read line; do
-    # eval "${line}"
-  # done
-# fi
-
-if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
-if which pyenv-virtualenv-init > /dev/null; then eval "$(pyenv virtualenv-init -)"; fi
-
-export PYENV_ROOT="${HOME}/.pyenv"
-if [ -d "${PYENV_ROOT}" ]; then
-    export PATH=${PYENV_ROOT}/bin:$PATH
-    eval "$(pyenv init -)"
-    eval "$(pyenv virtualenv-init -)"
-fi
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/Users/jyane/workspace/app/google-cloud-sdk/path.zsh.inc' ]; then source '/Users/jyane/workspace/app/google-cloud-sdk/path.zsh.inc'; fi
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/jyane/workspace/app/google-cloud-sdk/completion.zsh.inc' ]; then source '/Users/jyane/workspace/app/google-cloud-sdk/completion.zsh.inc'; fi
-source $HOME/.cargo/env

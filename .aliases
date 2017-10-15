@@ -1,36 +1,16 @@
 ## Alias configuration
 setopt complete_aliases # aliased ls needs if file/dir completions work
 
-case "${OSTYPE}" in
-freebsd*|darwin*)
-  alias ls="ls -a -G -w -F"
-  ;;
-linux*)
-  alias ls="ls -a --color"
-  ;;
-esac
+alias ls="ls -a -G -w -F"
 
 # Dir navigation
 alias ~='cd ~'
 alias ....='../..'
 alias ......='../../..'
-alias www='cd /var/www'
 
-# for competitive
 alias topcoder='/usr/bin/javaws http://community.topcoder.com/contest/arena/ContestAppletProd.jnlp &'
 alias g++='g++-7 -O2 -std=c++11 -Wall -Wextra -D LOCAL'
-alias javac='javac -J-Dfile.encoding=UTF8'
-
-# tools
-alias where="command -v"
 alias ll="ls -al"
-alias du="du -h"
-alias df="df -h"
-alias su="su -l"
 alias fig="docker-compose"
-# alias ip="curl -s http://checkip.dyndns.com/ | sed 's/[^0-9\.]//g'"
-
-# alias dvipdfmx='dvipdfmx -f hiraginoEmbed.map'
-
 alias vi='nvim'
 alias ss='open /System/Library/Frameworks/ScreenSaver.framework/Resources/ScreenSaverEngine.app'

@@ -1,5 +1,6 @@
 function do_enter() {
     if [ -n "$BUFFER" ]; then
+        zle reset-prompt
         zle accept-line
         return 0
     fi

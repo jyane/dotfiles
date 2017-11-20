@@ -11,6 +11,8 @@ export PATH=/usr/local/bin:${PATH}:${HOME}/bin:/usr/bin:/usr/local/sbin:/usr/tex
 export XDG_CONFIG_HOME=${HOME}/.config
 export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
 
+export PROJECT_ID=$(gcloud config get-value project -q)
+
 # for rbenv
 if which rbenv > /dev/null; then
     eval "$(rbenv init -)";

@@ -47,9 +47,13 @@ nnoremap Q <Nop>
 
 inoremap { {}<LEFT>
 inoremap ( ()<LEFT>
+inoremap " ""<LEFT>
+inoremap ' ''<LEFT>
 
 set backup
 set backupdir=~/workspace/tmp/nvim
+
+set completeopt-=preview
 
 " Borrowed from https://github.com/jimon93/dotfiles/blob/master/.vimrc
 let g:mapleader = ' '
@@ -72,7 +76,7 @@ if &compatible
   set nocompatible
 endif
 
-let s:dein_dir = expand('~/.config/dein')
+let s:dein_dir = expand('~/.cache/dein')
 let s:dein_repo_dir = s:dein_dir . '/repos/github.com/Shougo/dein.vim'
 
 execute 'set runtimepath^=' . s:dein_repo_dir
@@ -80,8 +84,8 @@ execute 'set runtimepath^=' . s:dein_repo_dir
 if dein#load_state(s:dein_dir)
   call dein#begin(s:dein_dir)
 
-  let s:toml      = s:dein_dir . '/.dein.toml'
-  let s:lazy_toml = s:dein_dir . '/.dein_lazy.toml'
+  let s:toml      = '~/.config/dein/.dein.toml'
+  let s:lazy_toml = '~/.config/dein/.dein_lazy.toml'
 
   call dein#load_toml(s:toml,      {'lazy': 0})
   call dein#load_toml(s:lazy_toml, {'lazy': 1})
@@ -96,6 +100,8 @@ endif
 
 filetype plugin indent on
 " }}}
+
+let g:python3_host_prog = '/Users/jyane/.pyenv/versions/neovim3/bin/python'
 
 " color scheme {{{
 set background=dark
@@ -169,45 +175,12 @@ autocmd FileType * set formatoptions-=ro
 autocmd InsertLeave * set nopaste
 " }}}
 
-" filetype {{{
 au BufRead,BufNewFile *.md set filetype=markdown
-au BufRead,BufNewFile *.ts set filetype=typescript.tsx
-au BufRead,BufNewFile *.tsx set filetype=typescript.tsx
-au BufRead,BufNewFile *.js set filetype=javascript.jsx
-au BufRead,BufNewFile *.jsx set filetype=javascript.jsx
-" }}}
 
 " nerdcommenter {{{
 let NERDSpaceDelims = 1
 nmap ; <Plug>NERDCommenterToggle
 vmap ; <Plug>NERDCommenterToggle
-" }}}
-
-" context_filetype vim-precious {{{
-" let g:context_filetype#filetypes = {
-      " \ 'html': [
-      " \ {
-      " \ 'start': '<script>',
-      " \ 'end': '</script>', 'filetype': 'javascript',},
-      " \ {
-      " \ 'start': '<script\%( [^>]*\)charset="[^\"]*"\%( [^>]*\)\?>',
-      " \ 'end': '</script>', 'filetype': 'javascript',},
-      " \ {
-      " \ 'start': '<script\%( [^>]*\)\? type="text/javascript"\%( [^>]*\)\?>',
-      " \ 'end': '</script>', 'filetype': 'javascript',},
-      " \ {
-      " \ 'start': '<script\%( [^>]*\)\? type="text/coffeescript"\%( [^>]*\)\?>',
-      " \ 'end': '</script>', 'filetype': 'coffee',},
-      " \ {
-      " \ 'start': '<style\%( [^>]*\)\? type="text/css"\%( [^>]*\)\?>',
-      " \ 'end': '</style>', 'filetype': 'css',},
-      " \ {
-      " \ 'start': '<?',
-      " \ 'end': '?>', 'filetype': 'php',},],}
-" }}}
-
-" emmet {{{
-let g:user_emmet_leader_key='<c-t>'
 " }}}
 
 " vimfiler {{{
@@ -230,17 +203,11 @@ autocmd FileType vimfiler
 autocmd BufNewFile *.cpp 0r $HOME/.config/template/template.cpp
 " }}}
 
-" {{{ neosnippet
-let g:neosnippet#snippets_directory='~/.vim/bundle/neosnippet-snippets/snippets/'
-imap <C-k>     <Plug>(neosnippet_expand_or_jump)
-smap <C-k>     <Plug>(neosnippet_expand_or_jump)
-xmap <C-k>     <Plug>(neosnippet_expand_target)
-" }}}
-
 " deocomplete {{{
 let g:deoplete#enable_at_startup = 1
 let g:deoplete#enable_smart_case = 1
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+call deoplete#custom#source('_', 'converters', ['converter_auto_paren'])
 " " }}}
 
 augroup vimrc-checktime
@@ -252,12 +219,3 @@ function! StrTrim(txt)
   return substitute(a:txt, '^\n*\s*\(.\{-}\)\n*\s*$', '\1', '')
 endfunction
 
-" let g:flow_path = StrTrim(system('PATH=$(npm bin):$PATH && which flow'))
-
-" if g:flow_path != 'flow not found'
-  " let g:deoplete#sources#flow#flow_bin = g:flow_path
-" endif
-
-let g:jsdoc_enable_es6=1
-
-let g:rust_clip_command = 'pbcopy'

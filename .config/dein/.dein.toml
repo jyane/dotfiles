@@ -50,19 +50,14 @@ repo = 'scrooloose/nerdcommenter'
 [[plugins]]
 repo = 'haya14busa/incsearch.vim'
 
-# [[plugins]]
-# repo = 'Shougo/deoplete.nvim'
+[[plugins]]
+repo = 'Shougo/deoplete.nvim'
 
 [[plugins]]
 repo = 'scrooloose/nerdtree'
 
-# [[plugins]]
-# repo = 'editorconfig/editorconfig-vim'
-
+[[plugins]]
+repo = 'editorconfig/editorconfig-vim'
 
 [[plugins]]
-repo = 'mattn/benchvimrc-vim'
-
-[[plugins]]
-repo = 'rust-lang/rust.vim'
-
+repo = 'Shougo/neopairs.vim'

@@ -6,13 +6,13 @@ export PAGER=less
 export TERM=xterm-256color
 
 export GOROOT=/usr/local/opt/go/libexec
-export GOPATH=$HOME/workspace/repos
+export GOPATH=$HOME/workspace
 export PATH=/usr/local/bin:${PATH}:${HOME}/bin:/usr/bin:/usr/local/sbin:/usr/texbin:${HOME}/.nodebrew/current/bin:$(brew --prefix)/bin
 export XDG_CONFIG_HOME=${HOME}/.config
-export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
-export PATH=$PATH:$HOME/workspace/repos/github.com/jyane/grpc/bins/opt
+export PATH=$PATH:$GOPATH/bin
+export PATH=$PATH:$HOME/workspace/src/github.com/jyane/grpc/bins/opt
 
-export PROJECT_ID=$(gcloud config get-value project -q)
+export PROJECT_ID=jyane-dev
 
 # for rbenv
 if which rbenv > /dev/null; then

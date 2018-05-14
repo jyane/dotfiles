@@ -101,7 +101,7 @@ endif
 filetype plugin indent on
 " }}}
 
-let g:python3_host_prog = '/Users/jyane/.pyenv/versions/neovim3/bin/python'
+let g:python3_host_prog = $HOME.'/.pyenv/versions/neovim3/bin/python'
 
 " color scheme {{{
 set background=dark

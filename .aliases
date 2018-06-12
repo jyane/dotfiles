@@ -8,7 +8,7 @@ alias ~='cd ~'
 alias ....='../..'
 alias ......='../../..'
 
-alias topcoder='/usr/bin/javaws http://community.topcoder.com/contest/arena/ContestAppletProd.jnlp &'
+alias topcoder='/usr/bin/javaws http://www.topcoder.com/contest/arena/ContestAppletProd.jnlp &'
 alias g++='g++-7 -O2 -std=c++11 -Wall -Wextra -D LOCAL'
 alias ll="ls -al"
 alias fig="docker-compose"

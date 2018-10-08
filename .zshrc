@@ -106,3 +106,4 @@ if [ -f '/Users/jyane/workspace/app/google-cloud-sdk/path.zsh.inc' ]; then sourc
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/jyane/workspace/app/google-cloud-sdk/completion.zsh.inc' ]; then source '/Users/jyane/workspace/app/google-cloud-sdk/completion.zsh.inc'; fi
+if [ -f '/usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh' ]; then source '/usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh'; fi

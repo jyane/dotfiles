@@ -4,7 +4,6 @@
 [user]
 	name = Shohei Kamimori
 	email = jyane.kstm@gmail.com
-	signingkey = FDD08433F51E30F8C2D6753BFAF67B7ED094F54D
 [alias]
   alias = !git config --get-regexp alias
   unstage = reset -q HEAD --
@@ -18,5 +17,3 @@
   prune = fetch --prune
 [credential]
 	helper = osxkeychain
-[commit]
-	gpgsign = true

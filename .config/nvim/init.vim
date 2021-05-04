@@ -1,4 +1,4 @@
-" Basic settings {{{
+"Basic settings {{{
 scriptencoding utf-8
 
 set enc=utf-8
@@ -101,8 +101,6 @@ endif
 filetype plugin indent on
 " }}}
 
-let g:python3_host_prog = $HOME.'/.pyenv/versions/neovim3/bin/python'
-
 " color scheme {{{
 set background=dark
 colorscheme atom-dark-256
@@ -119,16 +117,16 @@ nnoremap <silent> <Leader>uu :<C-u>Unite buffer file_mru<CR>
 
 " lightline {{{
 let g:lightline = {
-      \ 'active': {
-      \   'left': [
-      \       ['mode', 'paste'],
-      \       ['readonly', 'filename', 'modified', 'anzu']
-      \   ]
-      \ },
-      \ 'component_function': {
-      \   'anzu': 'anzu#search_status'
-      \ }
-      \ }
+  \ 'active': {
+  \   'left': [
+  \       ['mode', 'paste'],
+  \       ['readonly', 'filename', 'modified', 'anzu']
+  \   ]
+  \ },
+  \ 'component_function': {
+  \ 'anzu': 'anzu#search_status'
+  \ }
+  \ }
 
 " anzu {{{
 nmap n nzz<Plug>(anzu-update-search-status)
@@ -137,9 +135,10 @@ nmap * <Plug>(anzu-star)
 nmap # <Plug>(anzu-sharp)
 " }}}
 
+
 " incsearch {{{
-map /  <Plug>(incsearch-forward)
-map ?  <Plug>(incsearch-backward)
+map / <Plug>(incsearch-forward)
+map ? <Plug>(incsearch-backward)
 " }}}
 
 
@@ -199,15 +198,13 @@ autocmd FileType vimfiler
       \ :call UniteFileCurrentDir() <CR>
 " }}}
 
-" template {{{
-autocmd BufNewFile *.cpp 0r $HOME/.config/template/template.cpp
-" }}}
-
 " deocomplete {{{
 let g:deoplete#enable_at_startup = 1
-let g:deoplete#enable_smart_case = 1
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 call deoplete#custom#source('_', 'converters', ['converter_auto_paren'])
+call deoplete#custom#option({
+      \ 'smart_case': v:true,
+      \ })
 " " }}}
 
 augroup vimrc-checktime
@@ -218,4 +215,3 @@ augroup END
 function! StrTrim(txt)
   return substitute(a:txt, '^\n*\s*\(.\{-}\)\n*\s*$', '\1', '')
 endfunction
-

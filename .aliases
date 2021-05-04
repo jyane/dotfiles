@@ -1,16 +1,3 @@
-## Alias configuration
-setopt complete_aliases # aliased ls needs if file/dir completions work
-
-alias ls="ls -a -G -w -F"
-
-# Dir navigation
-alias ~='cd ~'
-alias ....='../..'
-alias ......='../../..'
-
-alias topcoder='/usr/bin/javaws http://www.topcoder.com/contest/arena/ContestAppletProd.jnlp &'
-alias g++='g++-7 -O2 -std=c++11 -Wall -Wextra -D LOCAL'
-alias ll="ls -al"
-alias fig="docker-compose"
-alias vi='nvim'
-alias ss='open /System/Library/Frameworks/ScreenSaver.framework/Resources/ScreenSaverEngine.app'
+alias ls="ls --color=auto"
+alias blaze=bazel
+alias pbcopy="xsel --clipboard --input"

@@ -4,32 +4,8 @@ export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 export PAGER=less
 export TERM=xterm-256color
-
-export GOROOT=/usr/local/opt/go/libexec
-export GOPATH=$HOME/workspace
-export PATH=/usr/local/bin:${PATH}:${HOME}/bin:/usr/bin:/usr/local/sbin:/usr/texbin:${HOME}/.nodebrew/current/bin:$(brew --prefix)/bin
+export PATH=/usr/local/bin:${PATH}:${HOME}/bin:/usr/bin:/usr/local/sbin:${HOME}/workspace/bin:${HOME}/.local/bin
 export XDG_CONFIG_HOME=${HOME}/.config
-export PATH=$PATH:$GOPATH/bin
-export PATH=$PATH:$HOME/workspace/src/github.com/jyane/grpc/bins/opt
-
-export PROJECT_ID=jyane-dev
-
-# for rbenv
-if which rbenv > /dev/null; then
-    eval "$(rbenv init -)";
-    export PATH="$HOME/.rbenv/bin:$PATH"
-fi
-
-# pyenv
-if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
-if which pyenv-virtualenv-init > /dev/null; then eval "$(pyenv virtualenv-init -)"; fi
-
-export PYENV_ROOT="${HOME}/.pyenv"
-if [ -d "${PYENV_ROOT}" ]; then
-    export PATH=${PYENV_ROOT}/bin:$PATH
-    eval "$(pyenv init -)"
-    eval "$(pyenv virtualenv-init -)"
-fi
 
 # Default shell configuration set prompt
 autoload colors
@@ -90,20 +66,8 @@ zstyle ':chpwd:*' recent-dirs-max 500
 autoload -U compinit
 compinit
 
-if [ -e /usr/local/share/zsh-completions ]; then
-    fpath=(/usr/local/share/zsh-completions $fpath)
-fi
-
 # read other settings.
-[ -f ${HOME}/.cargo/env ] && source ${HOME}/.cargo/env
 [ -f ${HOME}/.aliases ] && source ${HOME}/.aliases
-[ -f /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ] && source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 [ -f ${HOME}/.zsh/enter.zsh ] && source ${HOME}/.zsh/enter.zsh
-[ -f ${HOME}/.zsh/jyane-peco ] && source ${HOME}/.zsh/jyane-peco
-
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/jyane/workspace/app/google-cloud-sdk/path.zsh.inc' ]; then source '/Users/jyane/workspace/app/google-cloud-sdk/path.zsh.inc'; fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f '/Users/jyane/workspace/app/google-cloud-sdk/completion.zsh.inc' ]; then source '/Users/jyane/workspace/app/google-cloud-sdk/completion.zsh.inc'; fi
-if [ -f '/usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh' ]; then source '/usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh'; fi
+[ -f ${HOME}/.zsh/fzf.zsh ] && source ${HOME}/.zsh/fzf.zsh
+[ -f /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ] && source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh

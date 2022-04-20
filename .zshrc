@@ -4,8 +4,10 @@ export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 export PAGER=less
 export TERM=xterm-256color
-export PATH=/usr/local/bin:${PATH}:${HOME}/bin:/usr/bin:/usr/local/sbin:${HOME}/workspace/bin:${HOME}/.local/bin
+export PATH=/usr/local/bin:${PATH}:${HOME}/bin:/usr/bin:/usr/local/sbin:${HOME}/workspace/bin:${HOME}/.local/bin:/usr/local/go/bin:${HOME}/go/bin
 export XDG_CONFIG_HOME=${HOME}/.config
+export WHOME=/mnt/c/Users/jyane
+# export GOPACKAGESDRIVER=${HOME}/workspace/src/github.com/jyane/gotest/gopackagesdriver.sh
 
 # Default shell configuration set prompt
 autoload colors
@@ -21,6 +23,12 @@ $mark "
 
 # RPROMPT="%* [%~]"
 SPROMPT="%B%{${fg[red]}%}%r is correct? [n,y,a,e]:%{${reset_color}%}%b "
+
+fpath=($fpath /usr/share/zsh/vendor-completions)
+
+# Completion configuration
+autoload -U compinit
+compinit
 
 setopt auto_cd
 setopt auto_pushd
@@ -61,10 +69,6 @@ setopt share_history # share command history data
 autoload -Uz chpwd_recent_dirs cdr add-zsh-hook
 add-zsh-hook chpwd chpwd_recent_dirs
 zstyle ':chpwd:*' recent-dirs-max 500
-
-# Completion configuration
-autoload -U compinit
-compinit
 
 # read other settings.
 [ -f ${HOME}/.aliases ] && source ${HOME}/.aliases

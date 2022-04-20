@@ -54,6 +54,9 @@ repo = 'haya14busa/incsearch.vim'
 repo = 'Shougo/deoplete.nvim'
 
 [[plugins]]
+repo = 'deoplete-plugins/deoplete-lsp'
+
+[[plugins]]
 repo = 'scrooloose/nerdtree'
 
 [[plugins]]
@@ -61,3 +64,6 @@ repo = 'editorconfig/editorconfig-vim'
 
 [[plugins]]
 repo = 'Shougo/neopairs.vim'
+
+[[plugins]]
+repo = 'neovim/nvim-lspconfig'

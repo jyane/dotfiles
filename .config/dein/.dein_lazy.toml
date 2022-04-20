@@ -22,12 +22,12 @@ on_ft = 'css'
 repo = 'mxw/vim-jsx'
 on_ft = 'jsx'
 
-[[plugins]]
-repo = 'zchee/deoplete-go'
-on_ft = 'go'
-  [plugins.build]
-  mac = 'make'
+# [[plugins]]
+# repo = 'zchee/deoplete-go'
+# on_ft = 'go'
+#   [plugins.build]
+#   mac = 'make'
 
-[[plugins]]
-repo = 'fatih/vim-go'
-on_ft = 'go'
+# [[plugins]]
+# repo = 'fatih/vim-go'
+# on_ft = 'go'

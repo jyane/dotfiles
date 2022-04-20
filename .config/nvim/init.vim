@@ -250,15 +250,14 @@ nvim_lsp.gopls.setup {
   settings = {
     gopls = {
       env = {
-        GOPACKAGESDRIVER = './gopackagesdriver.sh'
+        GOPACKAGESDRIVER = './tools/gopackagesdriver.sh'
       },
       directoryFilters = {
         "-bazel-bin",
         "-bazel-out",
         "-bazel-testlogs",
-        "-bazel-mypkg",
+        "-bazel-j2",
       },
-      gofumpt = true,
       usePlaceholders = true,
     },
   },

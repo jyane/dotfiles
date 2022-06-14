@@ -6,11 +6,6 @@ export PAGER=less
 export TERM=xterm-256color
 export PATH=/usr/local/bin:${PATH}:${HOME}/bin:/usr/bin:/usr/local/sbin:${HOME}/workspace/bin:${HOME}/.local/bin:/usr/local/go/bin:${HOME}/go/bin
 export XDG_CONFIG_HOME=${HOME}/.config
-export WHOME=/mnt/c/Users/jyane
-# export GOPACKAGESDRIVER=${HOME}/workspace/src/github.com/jyane/gotest/gopackagesdriver.sh
-
-# for WSL2, updating ubuntu 22.04 may solve this.
-export MESA_GL_VERSION_OVERRIDE=3.3
 
 # Default shell configuration set prompt
 autoload colors
@@ -74,6 +69,7 @@ add-zsh-hook chpwd chpwd_recent_dirs
 zstyle ':chpwd:*' recent-dirs-max 500
 
 # read other settings.
+[ -f ${HOME}/.wslzsh ] && source ${HOME}/.wslzsh # WSL specific settings
 [ -f ${HOME}/.aliases ] && source ${HOME}/.aliases
 [ -f ${HOME}/.zsh/enter.zsh ] && source ${HOME}/.zsh/enter.zsh
 [ -f ${HOME}/.zsh/fzf.zsh ] && source ${HOME}/.zsh/fzf.zsh

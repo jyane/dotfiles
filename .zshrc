@@ -9,6 +9,9 @@ export XDG_CONFIG_HOME=${HOME}/.config
 export WHOME=/mnt/c/Users/jyane
 # export GOPACKAGESDRIVER=${HOME}/workspace/src/github.com/jyane/gotest/gopackagesdriver.sh
 
+# for WSL2, updating ubuntu 22.04 may solve this.
+export MESA_GL_VERSION_OVERRIDE=3.3
+
 # Default shell configuration set prompt
 autoload colors
 colors

@@ -249,9 +249,9 @@ nvim_lsp.gopls.setup {
   on_attach = on_attach,
   settings = {
     gopls = {
-      env = {
-        GOPACKAGESDRIVER = './tools/gopackagesdriver.sh'
-      },
+      -- env = {
+        -- GOPACKAGESDRIVER = './tools/gopackagesdriver.sh'
+      -- },
       directoryFilters = {
         "-bazel-bin",
         "-bazel-out",

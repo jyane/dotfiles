@@ -69,8 +69,9 @@ add-zsh-hook chpwd chpwd_recent_dirs
 zstyle ':chpwd:*' recent-dirs-max 500
 
 # read other settings.
-[ -f ${HOME}/.wslzsh ] && source ${HOME}/.wslzsh # WSL specific settings
 [ -f ${HOME}/.aliases ] && source ${HOME}/.aliases
 [ -f ${HOME}/.zsh/enter.zsh ] && source ${HOME}/.zsh/enter.zsh
 [ -f ${HOME}/.zsh/fzf.zsh ] && source ${HOME}/.zsh/fzf.zsh
 [ -f /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ] && source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+# if WSL
+[[ $(uname -r) == *"WSL"* ]] && [ -f ${HOME}/.zsh/wsl.zsh ] && source ${HOME}/.zsh/wsl.zsh

@@ -1,3 +1,8 @@
 [user]
 	email = jyane.kstm@gmail.com
 	name = Shohei Kamimori
+	signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEcS8DuVqhBaWw2zWOcNZbVKbvqModLK41G9CxgkCr2U
+[gpg]
+	format = ssh
+[commit]
+	gpgsign = true

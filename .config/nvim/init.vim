@@ -36,7 +36,6 @@ set ttyfast
 
 set ambiwidth=double
 
-set clipboard&
 set clipboard+=unnamedplus
 
 nnoremap j gj

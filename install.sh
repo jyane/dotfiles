@@ -9,5 +9,3 @@ do
 done
 
 ln -s "$(pwd)/.config/nvim/init.vim" "${HOME}/.config/nvim/init.vim"
-ln -s "$(pwd)/.config/dein/.dein.toml" "${HOME}/.config/dein/.dein.toml"
-ln -s "$(pwd)/.config/dein/.dein_lazy.toml" "${HOME}/.config/dein/.dein_lazy.toml"

@@ -138,6 +138,7 @@ augroup END
 " {{{ lua
 lua << EOF
 
+
 local cmp = require'cmp'
 
 cmp.setup({
@@ -152,11 +153,21 @@ cmp.setup({
   })
 })
 
+local on_attach = function(client, bufnr)
+  local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
+  local opts = { noremap=true, silent=true }
+  buf_set_keymap('n', 'gd', '<Cmd>lua vim.lsp.buf.definition()<CR>', opts)
+  buf_set_keymap('n', 'gr', '<Cmd>lua vim.lsp.buf.references()<CR>', opts)
+end
+
 local lspconfig = require'lspconfig'
-lspconfig.clangd.setup{}
+lspconfig.clangd.setup{
+  on_attach = on_attach,
+}
 
 local lspconfig = require'lspconfig'
 lspconfig.gopls.setup({
+  on_attach = on_attach,
   settings = {
     gopls = {
       analyses = {

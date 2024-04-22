@@ -15,6 +15,7 @@ clone preservim/nerdtree
 clone hrsh7th/nvim-cmp
 clone hrsh7th/cmp-nvim-lsp
 clone neovim/nvim-lspconfig
+clone nvim-lualine/lualine.nvim
 
 mkdir -p "${BASE}/opt"
 cd "${BASE}/opt"

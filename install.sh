@@ -8,4 +8,5 @@ do
   ln -s "$(pwd)/$i" "${HOME}/${i}"
 done
 
-ln -s "$(pwd)/.config/nvim/init.vim" "${HOME}/.config/nvim/init.vim"
+ln -s "$(pwd)/.config/nvim" "${HOME}/.config/nvim"
+bash "${HOME}/.config/nvim/install.sh"

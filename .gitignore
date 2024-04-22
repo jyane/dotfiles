@@ -6,3 +6,5 @@
 .emacs.d/ac-comphist.dat
 .emacs.d/elpa
 .zsh_history
+.config/nvim/start
+.config/nvim/opt

@@ -20,9 +20,13 @@ local on_attach = function(client, bufnr)
   buf_set_keymap('n', 'gr', '<Cmd>lua vim.lsp.buf.references()<CR>', opts)
 end
 
+-- {{{ C/C++
 lspconfig.clangd.setup{
   on_attach = on_attach,
 }
+-- }}}
+
+-- {{{ Go
 
 lspconfig.gopls.setup{
   on_attach = on_attach,
@@ -63,3 +67,5 @@ vim.api.nvim_create_autocmd({ 'BufWritePre' }, {
   pattern = '*.go',
   callback = fix_and_imports,
 })
+
+--- }}}

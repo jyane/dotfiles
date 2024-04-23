@@ -3,6 +3,9 @@ clone() {
   git clone --depth=1 "https://github.com/${repo}.git"
 }
 
+# create a backup dir
+mkdir -p "${HOME}"/workspace/tmp/nvim
+
 BASE="${HOME}/.config/nvim"
 cd "${BASE}"
 

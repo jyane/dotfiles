@@ -57,7 +57,7 @@ bindkey "\\ep" history-beginning-search-backward-end
 bindkey "\\en" history-beginning-search-forward-end
 
 # Command history configuration
-HISTFILE=${HOME}/.zsh/.zsh_history
+HISTFILE=${HOME}/.zsh_history
 HISTSIZE=100000
 SAVEHIST=100000
 setopt hist_ignore_dups # ignore duplication command history list
@@ -75,3 +75,5 @@ zstyle ':chpwd:*' recent-dirs-max 500
 [ -f /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ] && source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 # if WSL
 [[ $(uname -r) == *"WSL"* ]] && [ -f ${HOME}/.zsh/wsl.zsh ] && source ${HOME}/.zsh/wsl.zsh
+# if rodete
+[[ $(uname -r) == *"rodete"* ]] && [ -f ${HOME}/.zsh/rodete.zsh ] && source ${HOME}/.zsh/rodete.zsh

@@ -8,10 +8,12 @@
 	gpgsign = true
 [core]
 	editor = nvim
-[alias]
-	unstage = reset HEAD
-	uncommit = reset --soft HEAD^
 [includeIf "gitdir:/home/skamimori/"]
 	path = ~/.gitconfig_skamimori
 [includeIf "gitdir:/usr/local/google/home/skamimori/"]
 	path = ~/.gitconfig_skamimori
+[includeIf "gitdir:/home/jyane/"]
+	path = ~/.gitconfig_jyane
+[alias]
+	unstage = reset HEAD
+	uncommit = reset --soft HEAD^

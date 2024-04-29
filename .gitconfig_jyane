@@ -1,0 +1,4 @@
+[gpg "ssh"]
+        program = /mnt/c/Users/jyane/AppData/Local/1Password/app/8/op-ssh-sign.exe
+[core]
+        sshCommand = ssh.exe

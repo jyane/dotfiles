@@ -15,7 +15,7 @@ colors
 export CLICOLOR=1
 export LSCOLORS=gxfxcxdxbxegedabagacad
 
-local mark="%B%(!,#,->)%b"
+local mark="%B%(!,#,$)%b"
 PROMPT="[%~] (%B%F{blue}%n%f%b@%F{gray}%m%f 20%D %*)
 $mark "
 

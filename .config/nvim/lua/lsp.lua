@@ -7,18 +7,12 @@ cmp.setup{
     ['<C-n>'] = cmp.mapping.select_next_item(),
     ['<C-f>'] = cmp.mapping.complete(),
     ['<CR>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+    ['<TAB>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
   }),
   sources = cmp.config.sources({
     { name = 'nvim_lsp' },
   })
 }
-
-local on_attach = function(client, bufnr)
-  local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
-  local opts = { noremap = true, silent = true }
-  buf_set_keymap('n', 'gd', '<Cmd>lua vim.lsp.buf.definition()<CR>', opts)
-  buf_set_keymap('n', 'gr', '<Cmd>lua vim.lsp.buf.references()<CR>', opts)
-end
 
 -- {{{ C/C++
 lspconfig.clangd.setup{
@@ -69,3 +63,7 @@ vim.api.nvim_create_autocmd({ 'BufWritePre' }, {
 })
 
 --- }}}
+
+-- {{{ typescript
+require'lspconfig'.ts_ls.setup{}
+-- }}}

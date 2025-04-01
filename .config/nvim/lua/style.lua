@@ -1,15 +1,15 @@
 require('utils')
 
-vim.cmd [[
-  colorscheme ghdark
-]]
+vim.opt.termguicolors = true
+
+vim.cmd.colorscheme "catppuccin"
 
 vim.opt.fillchars = 'eob: ,vert: ,horiz: ,vertleft: ,vertright: ,verthoriz: ,',
 
 require('lualine').setup {
   options = {
-    icons_enabled = false,
-    theme = 'iceberg_dark',
+    icons_enabled = true,
+    theme = 'catppuccin',
     component_separators = { left = '|', right = '|'},
     section_separators = { left = '', right = ''},
   },

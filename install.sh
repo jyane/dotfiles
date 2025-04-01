@@ -4,6 +4,7 @@ if [ -x "$(command -v apt)" ]; then
   sudo apt install -y -q \
     zsh \
     zsh-syntax-highlighting \
+    zsh-autosuggestions \
     tmux \
     fzf \
     jq \
@@ -13,6 +14,8 @@ fi
 
 cd $(dirname $0)
 files=$(ls -al | awk '{ print $9 }' | grep -v -E '(^.$|^..$|^README.md$|^.git$|^install.sh$|^.config$)')
+
+echo $files
 
 for i in $files
 do
@@ -24,7 +27,7 @@ do
 done
 
 if [ -d "${HOME}/.config/nvim" ]; then
-  echo "Skipping neovim setup because there seems to be an existing setting."
+  echo "Skipping neovim setup because there seems to be an existing setting?"
 else
   ln -s "$(pwd)/.config/nvim" "${HOME}/.config/nvim"
   bash "${HOME}/.config/nvim/install.sh"

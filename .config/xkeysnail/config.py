@@ -1,6 +1,10 @@
 import re
 from xkeysnail.transform import *
 
+define_modmap({
+    Key.CAPSLOCK: Key.LEFT_CTRL
+})
+
 define_keymap(re.compile("Google-chrome"), {
     K("C-s"): with_mark(K("C-f")),
 }, "Chrome")

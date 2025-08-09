@@ -30,7 +30,7 @@ if [ -d "${HOME}/.config/nvim" ]; then
   echo "Skipping neovim setup because there seems to be an existing setting?"
 else
   ln -s "$(pwd)/.config/nvim" "${HOME}/.config/nvim"
-  bash "${HOME}/.config/nvim/install.sh"
+  bash "${HOME}/.config/nvim/install.sh" setup
 fi
 
 if [ -d "${HOME}/.config/xkeysnail" ]; then

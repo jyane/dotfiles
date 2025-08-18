@@ -13,10 +13,10 @@ START_LIBS=(
 "hrsh7th/cmp-nvim-lsp"
 "neovim/nvim-lspconfig"
 "nvim-lualine/lualine.nvim"
-"junegunn/fzf"
-"junegunn/fzf.vim"
 "nvim-tree/nvim-tree.lua"
 "nvim-tree/nvim-web-devicons"
+"nvim-lua/plenary.nvim"
+"nvim-telescope/telescope.nvim"
 )
 
 OPT_LIBS=(

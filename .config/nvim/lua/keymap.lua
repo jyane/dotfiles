@@ -1,15 +1,18 @@
-require('utils')
+vim.g.mapleader = ' '
+vim.g.maplocalleader = ' '
 
-keymap('n', 'j', 'gj')
-keymap('n', 'k', 'gk')
-keymap('i', '{', '{}<left>')
-keymap('i', '[', '[]<left>')
-keymap('i', '(', '()<left>')
-keymap('i', '"', '""<left>')
-keymap('i', "'", "''<left>")
-keymap('n', '<esc><esc>', ':nohlsearch<CR>')
+vim.keymap.set('n', '<leader><leader>', ':w<CR>', { desc = 'Save' })
+vim.keymap.set('n', '<leader>q', ':q<CR>', { desc = 'Quit' })
+vim.keymap.set('n', '<leader>-', ':sp<CR>', { desc = 'Split horizontally' })
+vim.keymap.set('n', '<leader>|', ':vs<CR>', { desc = 'Split vertically' })
 
--- LSP
-keymap('n', '<space>e', '<Cmd>lua vim.diagnostic.open_float()<CR>')
-keymap('n', 'gd', '<Cmd>lua vim.lsp.buf.definition()<CR>')
-keymap('n', 'gr', '<Cmd>lua vim.lsp.buf.references()<CR>')
+vim.keymap.set('n', 'k', 'gk', { desc = 'Scroll up anyway' })
+vim.keymap.set('n', 'j', 'gj', { desc = 'Scroll down anyway' })
+
+vim.keymap.set('i', '{', '{}<left>', { desc = 'Close {}' })
+vim.keymap.set('i', '[', '[]<left>', { desc = 'Close ()' })
+vim.keymap.set('i', '(', '()<left>', { desc = 'Close []' })
+vim.keymap.set('i', '[', '[]<left>', { desc = "Close ''" })
+vim.keymap.set('i', '[', '[]<left>', { desc = 'Close ""' })
+
+vim.keymap.set('n', '<esc><esc>', ':nohlsearch<CR>', { desc = 'Suppress search highlitghts' })

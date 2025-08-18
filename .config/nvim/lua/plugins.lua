@@ -1,13 +1,13 @@
-require('utils')
-
--- Here is supposed to have plugin specific settings, but styles/lsp related settings are in each files.
+-- Here is supposed to have plugin specific settings, but styles/lsp related settings are in each file.
 
 vim.g.NERDSpaceDelims = 1
-keymap('n', ';', '<Plug>NERDCommenterToggle')
-keymap('v', ';', '<Plug>NERDCommenterToggle')
+vim.g.NERDDefaultAlign ='left'
+vim.keymap.set('n', ';', '<Plug>NERDCommenterToggle')
+vim.keymap.set('v', ';', '<Plug>NERDCommenterToggle')
 
-require("nvim-tree").setup()
-
+require('nvim-tree').setup()
+local nvimtree = require('nvim-tree.api')
+vim.keymap.set('n', '<leader>t', nvimtree.tree.toggle)
 
 -- {{{ telescope
 local builtin = require('telescope.builtin')

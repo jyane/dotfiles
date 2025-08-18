@@ -8,7 +8,6 @@ START_LIBS=(
 "scrooloose/nerdcommenter"
 "google/vim-searchindex"
 "catppuccin/nvim"
-"preservim/nerdtree"
 "hrsh7th/nvim-cmp"
 "hrsh7th/cmp-nvim-lsp"
 "neovim/nvim-lspconfig"

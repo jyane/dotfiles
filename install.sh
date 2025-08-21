@@ -30,6 +30,7 @@ if [ -d "${HOME}/.config/nvim" ]; then
   echo "Skipping neovim setup because there seems to be an existing setting?"
 else
   ln -s "$(pwd)/.config/nvim" "${HOME}/.config/nvim"
+  jpkg --mode=install --base-dir="start/"
   bash "${HOME}/.config/nvim/install.sh" setup
 fi
 

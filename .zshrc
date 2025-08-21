@@ -22,7 +22,7 @@ $mark "
 # RPROMPT="%* [%~]"
 SPROMPT="%B%{${fg[red]}%}%r is correct? [n,y,a,e]:%{${reset_color}%}%b "
 
-fpath=($fpath /usr/share/zsh/vendor-completions)
+fpath=($fpath "${HOME}/.zsh/plugins/zsh-completions")
 
 # Completion configuration
 autoload -U compinit
@@ -68,13 +68,13 @@ autoload -Uz chpwd_recent_dirs cdr add-zsh-hook
 add-zsh-hook chpwd chpwd_recent_dirs
 zstyle ':chpwd:*' recent-dirs-max 500
 
+# plugins
+[ -f ${HOME}/.zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ] && source ${HOME}/.zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+[ -f ${HOME}/.zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh ] && source ${HOME}/.zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+
 # read other settings.
 [ -f ${HOME}/.zsh/alias.zsh ] && source ${HOME}/.zsh/alias.zsh
 [ -f ${HOME}/.zsh/enter.zsh ] && source ${HOME}/.zsh/enter.zsh
 [ -f ${HOME}/.zsh/fzf.zsh ] && source ${HOME}/.zsh/fzf.zsh
-[ -f /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ] && source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-[ -f /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh ] && source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-# if WSL
 [[ $(uname -r) == *"WSL"* ]] && [ -f ${HOME}/.zsh/wsl.zsh ] && source ${HOME}/.zsh/wsl.zsh
-# if rodete
 [[ $(uname -r) == *"rodete"* ]] && [ -f ${HOME}/.zsh/rodete.zsh ] && source ${HOME}/.zsh/rodete.zsh

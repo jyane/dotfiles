@@ -1,0 +1,6 @@
+repositories: [
+  {
+    directory: "catppuccin/tmux"
+    url: "https://github.com/catppuccin/tmux.git"
+  }
+]

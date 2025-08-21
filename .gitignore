@@ -9,3 +9,5 @@
 .config/nvim/start
 .config/nvim/opt
 .zsh/rodete.zsh
+.zsh/plugins
+.tmux/plugins

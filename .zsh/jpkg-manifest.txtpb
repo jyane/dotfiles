@@ -1,0 +1,14 @@
+repositories: [
+  {
+    url: "https://github.com/zsh-users/zsh-syntax-highlighting.git"
+    hash: "db085e4661f6aafd24e5acb5b2e17e4dd5dddf3e"
+  },
+  {
+    url: "https://github.com/zsh-users/zsh-autosuggestions"
+    hash: "e52ee8ca55bcc56a17c828767a3f98f22a68d4eb"
+  },
+  {
+    url: "https://github.com/zsh-users/zsh-completions.git"
+    hash: "67921bc12502c1e7b0f156533fbac2cb51f6943d"
+  }
+]

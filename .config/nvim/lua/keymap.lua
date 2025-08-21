@@ -13,6 +13,6 @@ vim.keymap.set('i', '{', '{}<left>', { desc = 'Close {}' })
 vim.keymap.set('i', '[', '[]<left>', { desc = 'Close ()' })
 vim.keymap.set('i', '(', '()<left>', { desc = 'Close []' })
 vim.keymap.set('i', '[', '[]<left>', { desc = "Close ''" })
-vim.keymap.set('i', '[', '[]<left>', { desc = 'Close ""' })
+vim.keymap.set('i', '"', '""<left>', { desc = 'Close ""' })
 
 vim.keymap.set('n', '<esc><esc>', ':nohlsearch<CR>', { desc = 'Suppress search highlitghts' })

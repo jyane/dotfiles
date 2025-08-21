@@ -2,6 +2,7 @@ local cmp = require'cmp'
 local lspconfig = require'lspconfig'
 
 vim.keymap.set('n', '<leader>s', vim.diagnostic.open_float, { desc = 'Open message float' })
+vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, { desc = 'Rename' })
 vim.keymap.set('n', '<leader>gd', vim.lsp.buf.definition, { desc = 'Go to definition' })
 vim.keymap.set('n', '<leader>gr', vim.lsp.buf.references, { desc = 'Go to reference' })
 

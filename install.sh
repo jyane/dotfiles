@@ -29,10 +29,10 @@ else
   ln -s "$(pwd)/.config/nvim" "${HOME}/.config/nvim"
 fi
 
-if [ -d "${HOME}/.config/xkeysnail" ]; then
-  echo "Skipping xkeysnail because file or directory already exists."
+if [ -d "${HOME}/.config/xremap" ]; then
+  echo "Skipping xremap because file or directory already exists."
 else
-  ln -s "$(pwd)/.config/xkeysnail" "${HOME}/.config/xkeysnail"
+  ln -s "$(pwd)/.config/xremap" "${HOME}/.config/xremap"
 fi
 
 jpkg --mode=install --jpkg-manifest-file=".zsh/jpkg-manifest.txtpb" --jpkg-lock-file=".zsh/jpkg-lock.txtpb" --base-dir=".zsh/plugins/"

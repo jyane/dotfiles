@@ -1,0 +1,19 @@
+keymap:
+  - name: Global
+    application:
+      not: Gnome-terminal
+    remap:
+      C-b: { with_mark: left }
+      C-f: { with_mark: right }
+      C-p: { with_mark: up }
+      C-n: { with_mark: down }
+      C-a: { with_mark: home }
+      C-e: { with_mark: end }
+      C-k: [Shift-end, C-x, { set_mark: false }]
+      C-g: esc
+      C-KEY_LEFTBRACE: esc
+  - name: Chrome
+    application:
+      only: Google-chrome
+    remap:
+      C-s: C-f

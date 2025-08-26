@@ -1,3 +1,7 @@
+modmap:
+  - name: Global
+    remap:
+      CapsLock: Ctrl_L
 keymap:
   - name: Global
     application:

@@ -26,7 +26,7 @@ repositories:  {
 repositories:  {
   directory:  "nvim-lspconfig"
   url:  "https://github.com/neovim/nvim-lspconfig"
-  hash:  "ce45ccd6a97be8752ed83d1e14ac2aff1d5a4238"
+  hash:  "5dfb4199ed2afb1f06bb7f34adfa3d79a86ff731"
 }
 repositories:  {
   directory:  "lualine.nvim"
@@ -36,12 +36,12 @@ repositories:  {
 repositories:  {
   directory:  "nvim-tree.lua"
   url:  "https://github.com/nvim-tree/nvim-tree.lua"
-  hash:  "f4fa6ebd3cbfa299fb554766c56b2f7cc1233f27"
+  hash:  "fefa335f1c8f690eb668a1efd18ee4fc6d64cd3e"
 }
 repositories:  {
   directory:  "nvim-web-devicons"
   url:  "https://github.com/nvim-tree/nvim-web-devicons"
-  hash:  "c2599a81ecabaae07c49ff9b45dcd032a8d90f1a"
+  hash:  "4ae47f4fb18e85b80e84b729974fe65483b06aaf"
 }
 repositories:  {
   directory:  "plenary.nvim"

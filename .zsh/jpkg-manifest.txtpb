@@ -1,3 +1,4 @@
+directory: "plugins"
 repositories: [
   {
     url: "https://github.com/zsh-users/zsh-syntax-highlighting.git"

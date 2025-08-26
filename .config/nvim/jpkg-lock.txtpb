@@ -1,3 +1,4 @@
+directory:  "start"
 repositories:  {
   directory:  "nerdcommenter"
   url:  "https://github.com/scrooloose/nerdcommenter"
@@ -26,7 +27,7 @@ repositories:  {
 repositories:  {
   directory:  "nvim-lspconfig"
   url:  "https://github.com/neovim/nvim-lspconfig"
-  hash:  "5dfb4199ed2afb1f06bb7f34adfa3d79a86ff731"
+  hash:  "3d97ec4174bcc750d70718ddedabf150536a5891"
 }
 repositories:  {
   directory:  "lualine.nvim"

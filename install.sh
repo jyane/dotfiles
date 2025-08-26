@@ -27,6 +27,9 @@ if [ -d "${HOME}/.config/nvim" ]; then
   echo "Skipping neovim setup because there seems to be an existing setting?"
 else
   ln -s "$(pwd)/.config/nvim" "${HOME}/.config/nvim"
+  cd .config/nvim
+  jpkg --mode=install
+  cd -
 fi
 
 if [ -d "${HOME}/.config/xremap" ]; then
@@ -35,6 +38,12 @@ else
   ln -s "$(pwd)/.config/xremap" "${HOME}/.config/xremap"
 fi
 
-jpkg --mode=install --jpkg-manifest-file=".zsh/jpkg-manifest.txtpb" --jpkg-lock-file=".zsh/jpkg-lock.txtpb" --base-dir=".zsh/plugins/"
-jpkg --mode=install --jpkg-manifest-file=".tmux/jpkg-manifest.txtpb" --jpkg-lock-file=".tmux/jpkg-lock.txtpb" --base-dir=".tmux/plugins/"
-jpkg --mode=install --jpkg-manifest-file=".config/nvim/jpkg-manifest.txtpb" --jpkg-lock-file=".config/nvim/jpkg-lock.txtpb" --base-dir=".config/nvim/start/"
+cd .zsh
+jpkg --mode=install
+cd -
+
+cd .tmux
+jpkg --mode=install
+cd -
+
+echo 'Done'

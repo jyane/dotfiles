@@ -41,6 +41,7 @@ local options = {
   smartindent = true,
   paste = false,
   laststatus = 3,
+  showtabline = 1,
 }
 
 for k, v in pairs(options) do

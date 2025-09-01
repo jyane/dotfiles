@@ -54,3 +54,8 @@ repositories:  {
   url:  "https://github.com/nvim-telescope/telescope.nvim"
   hash:  "b4da76be54691e854d3e0e02c36b0245f945c2c7"
 }
+repositories:  {
+  directory:  "barbar.nvim"
+  url:  "https://github.com/romgrk/barbar.nvim"
+  hash:  "549ee11d97057eae207bafa2c23c315942cca097"
+}

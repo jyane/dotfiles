@@ -53,6 +53,7 @@ bindkey "\\en" history-beginning-search-forward-end
 HISTFILE=${HOME}/.zsh_history
 HISTSIZE=1000
 SAVEHIST=100000
+setopt extendedhistory
 setopt hist_reduce_blanks
 setopt hist_ignore_dups # ignore duplication command history list
 setopt hist_expand

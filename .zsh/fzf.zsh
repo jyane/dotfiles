@@ -17,7 +17,7 @@ bindkey '^T' fzf-cdr-widget
 # CTRL-R: history search
 fzf-history-widget() {
   setopt localoptions noglobsubst noposixbuiltins pipefail no_aliases 2> /dev/null
-  local num=$(fc -rl 1 | fzf --query=${${(qqq)LBUFFER}//\"/} | awk '{ print $1 }')
+  local num=$(history -iDr 1 | fzf --query=${${(qqq)LBUFFER}//\"/} | awk '{ print $1 }')
   if [ -n "$num" ]; then
     zle vi-fetch-history -n $num
   fi

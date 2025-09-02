@@ -1,9 +1,7 @@
 zmodload zsh/datetime
 
-#    ~/workspace/src/github.com/jyane/dotfiles  on   master !6 ?1                                       INT ✘  at 23:22:19 
-
-
 J_START=""
+NARROW_COLUMNS=100
 
 function preexec() {
   J_START=$EPOCHSECONDS
@@ -20,22 +18,55 @@ function command_duration() {
 }
 
 function ssh_info() {
+  local icon=""
+  case $(uname -r) in
+    *"rodete"*)
+      icon=""
+      ;;
+    *"WSL"*)
+      icon=""
+      ;;
+    *)
+      icon=""
+      ;;
+  esac
   if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ]; then
-    echo '%F{red}%B%f%b'
+    echo "%F{200}%B ${icon}%f%b"
   else
-    echo '%F{white}%B%f%b'
+    echo "%F{white}%B ${icon}%f%b"
   fi
 }
 
 function git_info() {
   if [ "$(git rev-parse --is-inside-work-tree 2> /dev/null)" = 'true' ]; then
     local branch=$(git branch --show-current)
-    echo "on%B%F{200}  ${branch}%f%b"
+    local mod_count=$(git status -s | wc -l)
+    if (( mod_count > 0 )); then
+      echo "on%B%F{200}  ${branch}%f %F{red}m:${mod_count}%f%b"
+    else
+      echo "on%B%F{200}  ${branch}%f%b"
+    fi
+  fi
+}
+
+function get_path() {
+  if (( COLUMNS <= NARROW_COLUMNS )); then
+    echo $(pwd | sed -e "s,^$HOME,~," -e 's,\([^/]\)[^/]*/,\1/,g')
+  else
+    echo "%~"
+  fi
+}
+
+function get_now() {
+  if (( COLUMNS <= NARROW_COLUMNS )); then
+    echo $(strftime "%H:%M:%S (%Z) ")
+  else
+    echo $(strftime "%Y-%m-%d %H:%M:%S (%Z) ")
   fi
 }
 
 function find_length() {
-  for (( i = 1; i <= (COLUMNS + 5); i++ )); do
+  for (( i = 1; i <= (COLUMNS + 10); i++ )); do
     if ! (( ${${(%):-$1%$i(l.1.0)}[-1]} )); then
       break
     fi
@@ -55,12 +86,13 @@ function spacer() {
 
 function set_prompt() {
   local duration=$(command_duration)
-  local now=$(strftime "%Y-%m-%d %H:%M:%S (%Z) ")
+  local now=$(get_now)
   local mark='%B%(?.%F{green}.%F{red})❯%f%b '
   local git=$(git_info)
   local ssh=$(ssh_info)
-  local top_right="${duration} at %F{246}${now}%f"
-  local top_left="${ssh} %B%F{cyan}%~%f%b $git"
+  local path=$(get_path)
+  local top_right="${duration} at %F{246}${now}%f "
+  local top_left="${ssh} %B%F{cyan}${path}%f%b $git"
   local spaces=$(spacer $top_left $top_right)
   echo ''
   PROMPT=${top_left}${spaces}${top_right}$'\n'${mark}

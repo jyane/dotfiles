@@ -1,4 +1,6 @@
 function do_enter() {
+    zle reset-prompt
+    preexec
     if [ -n "$BUFFER" ]; then
         zle reset-prompt
         zle accept-line
@@ -7,15 +9,11 @@ function do_enter() {
     echo
     ls -a
     echo
-    echo
-    # ls_abbrev
     if [ "$(git rev-parse --is-inside-work-tree 2> /dev/null)" = 'true' ]; then
         echo -e "\e[0;33m--- git status ---\e[0m"
         git status -sb
-        echo
-        echo
     fi
-    zle reset-prompt
+    zle accept-line
     return 0
 }
 

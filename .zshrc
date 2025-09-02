@@ -2,23 +2,18 @@ export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 export PAGER=less
 export TERM=xterm-256color
-export PATH=/usr/local/bin:${PATH}:${HOME}/bin:/usr/bin:/usr/local/sbin:${HOME}/workspace/bin:${HOME}/.local/bin:/usr/local/go/bin:${HOME}/go/bin
 export XDG_CONFIG_HOME=${HOME}/.config
+export PATH=${PATH}:/usr/local/bin:/usr/bin:/usr/local/sbin:${HOME}/.local/bin:${HOME}/bin
 
-# Default shell configuration set prompt
+# Go related
+export PATH=${PATH}:/usr/local/go/bin:${HOME}/go/bin
+
 autoload colors
 colors
 
 # ls colors
 export CLICOLOR=1
 export LSCOLORS=gxfxcxdxbxegedabagacad
-
-local mark="%B%(!,#,$)%b"
-PROMPT="[%~] (%B%F{blue}%n%f%b@%F{gray}%m%f 20%D %*)
-$mark "
-
-# RPROMPT="%* [%~]"
-SPROMPT="%B%{${fg[red]}%}%r is correct? [n,y,a,e]:%{${reset_color}%}%b "
 
 fpath=($fpath "${HOME}/.zsh/plugins/zsh-completions")
 
@@ -56,9 +51,13 @@ bindkey "\\en" history-beginning-search-forward-end
 
 # Command history configuration
 HISTFILE=${HOME}/.zsh_history
-HISTSIZE=100000
+HISTSIZE=1000
 SAVEHIST=100000
+setopt hist_reduce_blanks
 setopt hist_ignore_dups # ignore duplication command history list
+setopt hist_expand
+setopt inc_append_history
+setopt hist_find_no_dups
 setopt share_history # share command history data
 
 # cdr
@@ -71,6 +70,7 @@ zstyle ':chpwd:*' recent-dirs-max 500
 [ -f ${HOME}/.zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh ] && source ${HOME}/.zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # read other settings.
+[ -f ${HOME}/.zsh/prompt.zsh ] && source ${HOME}/.zsh/prompt.zsh
 [ -f ${HOME}/.zsh/alias.zsh ] && source ${HOME}/.zsh/alias.zsh
 [ -f ${HOME}/.zsh/enter.zsh ] && source ${HOME}/.zsh/enter.zsh
 [ -f ${HOME}/.zsh/fzf.zsh ] && source ${HOME}/.zsh/fzf.zsh
